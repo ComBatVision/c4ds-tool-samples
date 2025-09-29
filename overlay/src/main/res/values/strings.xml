@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name" translatable="false">ComBat 4 Example (Overlay)</string>
+    <string name="overlay_tool_name">Example (Overlay)</string>
+    <string name="overlay_tool_example_title">Hello</string>
+    <string name="overlay_tool_example_description">This is a sample tool with Overlay component</string>
+    <string name="overlay_tool_user_location">User location:</string>
+    <string name="overlay_tool_selected_location">Selected location:</string>
+    <string name="overlay_tool_unknown_location">Unknown</string>
+</resources>

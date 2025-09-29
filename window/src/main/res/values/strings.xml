@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" translatable="false">ComBat 4 Example (Window)</string>
+
+    <!--Simple-->
+    <string name="simple_tool_name">Example (Window, simple)</string>
+
+    <string name="user_model">User model</string>
+    <string name="selected_model">Selected model</string>
+    <string name="model_name">Name</string>
+    <string name="model_coordinates">Coordinates</string>
+    <string name="value_not_specified">Value not specified</string>
+    <string name="model_not_selected">Model not selected</string>
+    <string name="unselect_model">Unselect model</string>
+    <string name="model_unselected">Model unselected</string>
+
+    <!--Navigation-->
+    <string name="navigation_tool_name">Example (Window, navigation)</string>
+    <string name="tool_example_title">Hello</string>
+    <string name="tool_example_description">This is a sample tool with window component</string>
+</resources>

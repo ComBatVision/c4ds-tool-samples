@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" translatable="false">ComBat 4 Приклад (Window)</string>
+
+    <!--Simple-->
+    <string name="simple_tool_name">Приклад (Window, простий)</string>
+
+    <string name="user_model">Модель користувача</string>
+    <string name="selected_model">Обрана модель</string>
+    <string name="model_name">Назва</string>
+    <string name="model_coordinates">Координати</string>
+    <string name="value_not_specified">Значення не вказано</string>
+    <string name="model_not_selected">Модель не обрано</string>
+    <string name="unselect_model">Сикнути обрану модель</string>
+    <string name="model_unselected">Обрану модуль скинуто </string>
+
+    <!--Navigation-->
+    <string name="navigation_tool_name">Приклад (Window, навігація)</string>
+    <string name="tool_example_title">Привіт</string>
+    <string name="tool_example_description">Це приклад інструменту з компонентом типу Window</string>
+</resources>

@@ -1,0 +1,16 @@
+[versions]
+agp = "8.13.0"
+kotlin = "2.2.20"
+combat-ds-sdk = "0.1.1"
+desugar-jdk-libs = "2.1.5"
+
+[libraries]
+combat-ds-sdk = { group = "vision.combat", name = "c4ds-sdk", version.ref = "combat-ds-sdk" }
+combat-ds-sdk-runtine = { group = "vision.combat", name = "c4ds-sdk-runtime", version.ref = "combat-ds-sdk" }
+
+android-tools-desugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

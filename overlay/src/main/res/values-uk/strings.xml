@@ -1,0 +1,8 @@
+<resources>
+    <string name="overlay_tool_name">Приклад (Overlay)</string>
+    <string name="overlay_tool_example_title">Привіт</string>
+    <string name="overlay_tool_example_description">Це приклад інструменту з компонентом типу Overlay</string>
+    <string name="overlay_tool_user_location">Локація користувача:</string>
+    <string name="overlay_tool_selected_location">Локація курсору:</string>
+    <string name="overlay_tool_unknown_location">Невизначена</string>
+</resources>

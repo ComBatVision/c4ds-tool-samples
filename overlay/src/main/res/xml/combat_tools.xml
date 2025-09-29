@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<combat-tools>
+    <tool-descriptor name="vision.combat.c4.ds.example.tool.overlay.OverlayToolDescriptor" />
+</combat-tools>

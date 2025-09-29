@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<combat-tools>
+    <tool-descriptor name="vision.combat.c4.ds.example.tool.window.simple.SimpleToolDescriptor" />
+    <tool-descriptor name="vision.combat.c4.ds.example.tool.window.navigation.NavigationToolDescriptor" />
+</combat-tools>
