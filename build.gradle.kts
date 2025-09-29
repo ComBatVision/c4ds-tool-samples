@@ -12,8 +12,8 @@ subprojects {
         maven {
             url = uri("https://nexus.combat.vision/repository/maven-sdk/")
             credentials {
-                username = System.getProperty("maven_sdk_user") ?: rootProject.properties["maven_sdk_user"].toString()
-                password = System.getProperty("maven_sdk_password") ?: rootProject.properties["maven_sdk_password"].toString()
+                username = System.getProperty("c4ds_sdk_username") ?: rootProject.properties["c4ds_sdk_username"].toString()
+                password = System.getProperty("c4ds_sdk_password") ?: rootProject.properties["c4ds_sdk_password"].toString()
             }
         }
     }
