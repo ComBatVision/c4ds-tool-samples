@@ -17,7 +17,7 @@ To try out these sample tools, you need to:
 - use the same versions of core frameworks and libraries as the host app to maintain binary compatibility:
   
 - ```
-  kotlin = "2.2.0"
+  kotlin = "2.2.20"
   compose = "1.8.3"
   ```
 
