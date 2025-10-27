@@ -17,7 +17,7 @@ To try out these sample tools, you need to:
 - use the same versions of core frameworks and libraries as the host app to maintain binary compatibility:
   
 - ```
-  kotlin = "2.2.20"
+  kotlin = "2.2.21"
   compose = "1.8.3"
   ```
 
@@ -95,4 +95,4 @@ Once your app is installed, the ComBat 4 Dismounted Soldier app should automatic
 ## Demo
 Click to watch
 
-[![Demo video. Click to watch](https://github.com/user-attachments/assets/e077a04b-35c4-4d77-bd7b-672d552a4f26)](https://www.youtube.com/watch?v=V-FoCHOEejs)
+[![Demo video. Click to watch](https://github.com/user-attachments/assets/e077a04b-35c4-4d77-bd7b-672d552a4f26)](https://youtu.be/6AOOwTl_N9Y)
