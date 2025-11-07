@@ -58,7 +58,7 @@ internal class SimpleToolViewModel(
     fun handleAction(action: Action) {
         when (action) {
             is Action.ClearSelection -> {
-                modelInteractor.stopModelInteraction()
+                modelInteractor.unselectModel()
                 emitEvent(Event.ModelUnselected)
             }
         }
