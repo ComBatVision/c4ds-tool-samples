@@ -84,9 +84,9 @@ The app also allows you to declare custom buttons on the right side of the main 
    ```
 
 ## Building
-Your project does NOT need to have an Activity. To run the app, simply select `Nothing` in **Launch options**.
+Your project does NOT need to have an Activity. To run the app, simply select `Nothing` in **Launch options**. You need also check **Always install with package manager**, otherwise you may not see your changes.
 
-<img width="500" alt="Run configuration" src="https://github.com/user-attachments/assets/35dd1cd5-1e49-4419-a4f2-87476c5d7847" />
+<img width="500" alt="Run Configurations" src="https://github.com/user-attachments/assets/726d2066-f4d9-48d7-9aea-a1b14727e427" />
 
 Once your app is installed, the ComBat 4 Dismounted Soldier app should automatically refresh the **Tools** list and display your tool. The host app usually applies your changes immediately after your tool re-activation; however, in some cases, you may need to kill and restart the app.
 
