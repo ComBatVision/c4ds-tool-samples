@@ -13,7 +13,7 @@ If you encounter any issues, please [open an issue](https://github.com/ComBatVis
 To try out these sample tools, you need to: 
 - have the [ComBat 4 Dismounted Soldier](https://play.google.com/store/apps/details?id=vision.combat.c4.ds) app installed on your device.
 - have access to the Maven private repository. You may request access by writing to [support@combat.vision](mailto:support@combat.vision").
-- use latest available version of the C4DS SDK. Check the latest version on [Nexus Repository](https://nexus.combat.vision/#browse/browse:maven-sdk:vision%2Fcombat%2Fc4ds-sdk).
+- use the latest available version of the C4DS SDK. Check out the latest version on [Nexus Repository](https://nexus.combat.vision/#browse/browse:maven-sdk:vision%2Fcombat%2Fc4ds-sdk) (you'll have to login using the same credentials obtained in the previous step).
 - use the same versions of core frameworks and libraries as the host app to maintain binary compatibility:
   
 - ```
