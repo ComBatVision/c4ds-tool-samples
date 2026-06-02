@@ -1,6 +1,7 @@
 package vision.combat.c4.ds.example.tool.window.navigation
 
 import org.kodein.di.DI
+import vision.combat.c4.ds.sdk.BuildConfig
 import vision.combat.c4.ds.sdk.tool.AbstractTool
 import vision.combat.c4.ds.sdk.tool.ToolContext
 import vision.combat.c4.ds.sdk.tool.ToolDescriptor
@@ -19,6 +20,6 @@ class NavigationToolDescriptor(toolContext: ToolContext) : ToolDescriptor(toolCo
     }
 
     companion object {
-        val ID = ToolId<NavigationToolDescriptor>()
+        val ID = ToolId<NavigationToolDescriptor>(BuildConfig.APPLICATION_ID)
     }
 }
