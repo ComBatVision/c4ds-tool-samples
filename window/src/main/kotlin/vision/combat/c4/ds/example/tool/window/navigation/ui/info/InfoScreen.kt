@@ -7,14 +7,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import kotlinx.coroutines.flow.Flow
 import org.kodein.di.compose.rememberInstance
+import vision.combat.c4.ds.example.tool.window.navigation.ui.info.InfoViewModel.Action
+import vision.combat.c4.ds.example.tool.window.simple.SimpleToolDescriptor
+import vision.combat.c4.ds.sdk.tool.ToolId
 import vision.combat.c4.ds.sdk.tool.ToolManager
 import vision.combat.c4.ds.sdk.ui.component.WindowScaffold
 import vision.combat.c4.ds.sdk.ui.component.bar.BackNavTopAppBar
 import vision.combat.c4.ds.sdk.ui.component.button.Button
 import vision.combat.c4.ds.sdk.ui.component.button.IconButton
 import vision.combat.c4.ds.sdk.ui.viewmodel.diViewModel
-import vision.combat.c4.ds.example.tool.window.navigation.ui.info.InfoViewModel.Action
-import vision.combat.c4.ds.example.tool.window.simple.SimpleToolDescriptor
+import vision.combat.c4.ds.tool.sample.window.BuildConfig
 
 @Composable
 internal fun InfoScreen(
@@ -63,7 +65,10 @@ private fun Content(
     Text("Tool info screen content")
     Button(
         label = "Open Simple Tool",
-        onClick = { onAction(Action.ActivateTool(SimpleToolDescriptor.ID)) },
+        onClick = {
+            val simpleToolId = ToolId<SimpleToolDescriptor>(BuildConfig.APPLICATION_ID)
+            onAction(Action.ActivateTool(simpleToolId))
+        },
     )
 }
 

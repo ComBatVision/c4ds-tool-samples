@@ -12,6 +12,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -22,6 +25,10 @@ import vision.combat.c4.ds.sdk.ui.component.WindowScaffold
 import vision.combat.c4.ds.sdk.ui.component.bar.BackNavTopAppBar
 import vision.combat.c4.ds.sdk.ui.component.button.TextButton
 import vision.combat.c4.ds.sdk.ui.component.coordinates.CoordinatesInputWithSystem
+import vision.combat.c4.ds.sdk.ui.component.measurement.AltitudeInput
+import vision.combat.c4.ds.sdk.ui.component.measurement.AngleInput
+import vision.combat.c4.ds.sdk.ui.component.measurement.DistanceInput
+import vision.combat.c4.ds.sdk.ui.component.measurement.SpeedInput
 import vision.combat.c4.ds.sdk.ui.util.showToast
 import vision.combat.c4.ds.sdk.ui.viewmodel.diViewModel
 import vision.combat.c4.ds.tool.sample.window.R
@@ -75,6 +82,10 @@ private fun ColumnScope.Content(uiState: UiState, onAction: (Action) -> Unit) {
         enabled = uiState.selectedModel != null,
         onUnselect = { onAction(Action.ClearSelection) },
     )
+    Divider(
+        modifier = Modifier.padding(vertical = 16.dp)
+    )
+    MeasurementInputsDemo()
 }
 
 @Composable
@@ -109,6 +120,45 @@ private fun UnselectButton(enabled: Boolean, onUnselect: () -> Unit) {
         label = stringResource(R.string.unselect_model),
         onClick = onUnselect,
         enabled = enabled,
+    )
+}
+
+@Composable
+private fun ColumnScope.MeasurementInputsDemo() {
+    Text(
+        text = "Measurement Inputs",
+        style = MaterialTheme.typography.h6,
+        modifier = Modifier.padding(bottom = 8.dp),
+    )
+
+    var distance by remember { mutableStateOf<Double?>(1500.0) }
+    var speed by remember { mutableStateOf<Float?>(15f) }
+    var altitude by remember { mutableStateOf<Double?>(120.0) }
+    var azimuth by remember { mutableStateOf<Double?>(90.0) }
+
+    DistanceInput(
+        distanceMetres = distance,
+        onValueChange = { distance = it },
+        label = "Distance",
+        modifier = Modifier.fillMaxWidth(),
+    )
+    SpeedInput(
+        speedMps = speed,
+        onValueChange = { speed = it },
+        label = "Speed",
+        modifier = Modifier.fillMaxWidth(),
+    )
+    AltitudeInput(
+        altitudeMetres = altitude,
+        onValueChange = { altitude = it },
+        label = "Altitude",
+        modifier = Modifier.fillMaxWidth(),
+    )
+    AngleInput(
+        angleDegrees = azimuth,
+        onValueChange = { azimuth = it },
+        label = "Azimuth",
+        modifier = Modifier.fillMaxWidth(),
     )
 }
 

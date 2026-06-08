@@ -15,5 +15,6 @@ subprojects {
                 password = System.getProperty("c4ds_sdk_password") ?: rootProject.properties["c4ds_sdk_password"].toString()
             }
         }
+        mavenLocal()
     }
 }

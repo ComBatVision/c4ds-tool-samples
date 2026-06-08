@@ -5,9 +5,10 @@ import org.kodein.di.bindSingleton
 import org.kodein.di.instance
 import vision.combat.c4.ds.example.tool.window.navigation.NavigationToolDescriptor
 import vision.combat.c4.ds.example.tool.window.navigation.data.respository.NavigationToolRepository
+import vision.combat.c4.ds.sdk.tool.requireQualifiedName
 
 internal val navigationToolModule = DI.Module("navigationToolModule") {
     bindSingleton {
-        NavigationToolRepository(instance(arg = NavigationToolDescriptor.ID))
+        NavigationToolRepository(instance(arg = requireQualifiedName<NavigationToolDescriptor>()))
     }
 }

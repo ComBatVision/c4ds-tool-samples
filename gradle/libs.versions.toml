@@ -1,7 +1,7 @@
 [versions]
 agp = "9.2.1"
-kotlin = "2.3.21"
-combat-ds-sdk = "0.3.3"
+kotlin = "2.4.0"
+combat-ds-sdk = "0.3.4"
 desugar-jdk-libs = "2.1.5"
 
 [libraries]
