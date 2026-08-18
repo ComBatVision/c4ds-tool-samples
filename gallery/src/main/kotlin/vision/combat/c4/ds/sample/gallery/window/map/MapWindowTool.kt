@@ -48,7 +48,7 @@ internal class MapWindowTool(
         mapEndBarButtons = { FocusCameraButton() },
         navBarContent = { MapWindowAppBar() },
         initialize = {
-            navigationController.interactionMode = MapController.InteractionMode.LookAt
+            navigationController.interactionMode = MapController.InteractionMode.LOOK_AT
         },
     )
 
@@ -71,17 +71,17 @@ internal class MapWindowTool(
      */
     @Composable
     private fun MapWindowAppBar() {
-        var selectedMode by remember { mutableStateOf(MapController.InteractionMode.LookAt) }
+        var selectedMode by remember { mutableStateOf(MapController.InteractionMode.LOOK_AT) }
         BackNavTopAppBar(
             title = stringResource(R.string.mapwindow_tool_name),
             actions = {
                 OverflowMenu {
                     InteractionModeItem(
                         label = stringResource(R.string.mapwindow_mode_lookat),
-                        selected = selectedMode == MapController.InteractionMode.LookAt,
+                        selected = selectedMode == MapController.InteractionMode.LOOK_AT,
                         onClick = {
-                            selectedMode = MapController.InteractionMode.LookAt
-                            window.mapView?.navigationController?.interactionMode = MapController.InteractionMode.LookAt
+                            selectedMode = MapController.InteractionMode.LOOK_AT
+                            window.mapView?.navigationController?.interactionMode = MapController.InteractionMode.LOOK_AT
                         },
                     )
                     InteractionModeItem(

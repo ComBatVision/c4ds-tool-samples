@@ -1,7 +1,7 @@
 [versions]
 agp = "9.2.1"
 kotlin = "2.4.0"
-combat-ds-sdk = "0.5.2"
+combat-ds-sdk = "0.5.3"
 desugar-jdk-libs = "2.1.5"
 androidx-room = "2.8.4"
 google-ksp-plugin = "2.3.9"
