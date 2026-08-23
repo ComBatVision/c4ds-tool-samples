@@ -32,9 +32,14 @@ import vision.combat.c4.ds.sdk.ui.component.checkable.SwitchField
 import vision.combat.c4.ds.sdk.ui.viewmodel.diViewModel
 
 /**
- * Switches the map between [MapDisplayMode] Normal / AR / VR via
- * [CommonMapInteractor.updateMapDisplayMode]. In AR mode an [IntegerStepper] tunes the
+ * Requests a camera view for the map — [MapDisplayMode] AR or VR — via
+ * [CommonMapInteractor.requestCameraViewMode]. In AR mode an [IntegerStepper] tunes the
  * AR distance limit; [SwitchField]s toggle the reticle and overall map visibility.
+ *
+ * A tool asks for a camera view, it does not set the display mode: the host owns the map surface
+ * and applies the request while the tool shows a [ToolComponent.Underlay] over the map (see the
+ * Underlay showcase). With no underlay the map stays [MapDisplayMode.Normal] and the request is
+ * simply remembered. Passing `null` withdraws it.
  *
  * The showcase ViewModel resets these settings to a neutral state in [ViewModel.onCleared].
  */
@@ -116,7 +121,8 @@ internal class DisplayModeViewModel(
     }
 
     fun setDisplayMode(mode: MapDisplayMode) {
-        mapInteractor.updateMapDisplayMode { mode }
+        // Normal is not a camera view — asking for it means withdrawing the request.
+        mapInteractor.requestCameraViewMode(mode.takeIf { it != MapDisplayMode.Normal })
     }
 
     fun setArDistanceLimit(distanceM: Double) {
@@ -133,7 +139,7 @@ internal class DisplayModeViewModel(
 
     override fun onCleared() {
         // Leave the map in a neutral state when this showcase is closed.
-        mapInteractor.updateMapDisplayMode { MapDisplayMode.Normal }
+        mapInteractor.requestCameraViewMode(null)
         mapInteractor.setMapVisible(true)
         mapInteractor.setReticleVisible(false)
         super.onCleared()

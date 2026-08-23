@@ -12,7 +12,7 @@ import vision.combat.c4.ds.sdk.tool.ToolParams
  * focusOnLocation/Sector, and magnetic corrections.
  *
  * SDK APIs: CommonMapInteractor, mapNavigatorEvent, camera, lookAt, selectedPosition,
- *           isLookAtAboveHorizon, mapDisplayMode, updateMapDisplayMode, arDistanceLimit,
+ *           isLookAtAboveHorizon, mapDisplayMode, requestCameraViewMode, arDistanceLimit,
  *           setArDistanceLimit, isReticleVisible, setReticleVisible, isCursorPinned,
  *           pinCursor, unpinCursor, isMapVisible, setMapVisible, focusOnLocation, focusOnSector, getDeclination,
  *           getConvergence, getAngleCorrection.
