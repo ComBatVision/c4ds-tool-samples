@@ -11,9 +11,14 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
-        // Temporary: resolves the vision.combat.c4.ds plugin from a local publish. Replace with the
-        // Nexus maven-sdk repository once the plugin is published there.
-        mavenLocal()
+        // The c4ds build-conventions plugin is published alongside the SDK.
+        maven {
+            url = uri("https://nexus.combat.vision/repository/maven-sdk/")
+            credentials {
+                username = providers.gradleProperty("c4ds_sdk_username").get()
+                password = providers.gradleProperty("c4ds_sdk_password").get()
+            }
+        }
     }
 }
 @Suppress("UnstableApiUsage")
