@@ -58,6 +58,9 @@ adb install -r gallery/build/outputs/apk/release/gallery-release.apk
 adb install -r isolation/build/outputs/apk/release/isolation-release.apk
 ```
 
+Already have a plugin on an older SDK? See
+**[Migrating to the Gradle plugin](docs/guides/migrating-to-the-gradle-plugin.md)**.
+
 Neither APK declares an Activity. Install both, launch ComBat 4, then open **Sample Gallery** from
 the Tools list. Full setup: **[Getting started](docs/guides/getting-started.md)**.
 
@@ -110,6 +113,7 @@ order. Registry source of truth:
 | Document | Contents |
 |---|---|
 | **[Getting started](docs/guides/getting-started.md)** | Requirements, Gradle/Nexus setup, tool screen layout, integration steps, Android Studio run config |
+| **[Migrating to the Gradle plugin](docs/guides/migrating-to-the-gradle-plugin.md)** | Moving an existing plugin to `vision.combat.c4.ds`: what to delete, and the broken exclude it replaces |
 | **[Samples guidebook](docs/guides/samples-catalog.md)** | Every sample: screenshot, description, SDK APIs, source path, verification steps |
 | **[Plugin isolation](docs/guides/plugin-isolation.md)** | Asset/JNI smoke tests, isolation cases (a–e, g, h), cross-APK activation |
 
