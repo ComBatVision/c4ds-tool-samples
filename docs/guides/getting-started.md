@@ -90,19 +90,35 @@ subprojects {
 
 When starting a **new** tool project, copy this block into your root `build.gradle.kts`.
 
-### 3. Module dependencies
+### 3. Build conventions plugin
 
-Each sample module uses:
+Apply `vision.combat.c4.ds` alongside the Android plugin. It is published with the SDK, at the
+SDK's version:
 
 ```kotlin
-dependencies {
-    compileOnly(libs.combat.ds.sdk)
-    runtimeOnly(libs.combat.ds.sdk.runtime)
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.combat.plugin)
 }
 ```
 
-- `compileOnly` — SDK types and Compose APIs at compile time.
-- `runtimeOnly` — minimal runtime shim loaded by the host when your tool activates.
+That is all a plugin module needs. The conventions supply:
+
+- `compileOnly(c4ds-sdk)` — SDK types and Compose APIs at compile time — and
+  `runtimeOnly(c4ds-sdk-runtime)`, the minimal runtime shim the host loads when your tool activates;
+- `compileSdk` / `minSdk` / `targetSdk` / Java 17, and the host's Kotlin and Compose versions, so
+  your bytecode stays binary-compatible without you pinning anything;
+- the release build type: minification, resource shrinking, and a generated
+  `-repackageclasses <your applicationId>.obf`;
+- exclusion of host-provided libraries from the **runtime** classpath, and a
+  `verify<Variant>C4dsBoundary` check that fails the release build if a duplicate slips through.
+
+The last two are explained under *Release builds and obfuscation* below.
+
+If your plugin is split across several Gradle modules, apply the same conventions plugin next to
+`com.android.library` in the library modules. A library module is not a plugin: it is merged into
+the APK that consumes it, so it gets the SDK compile-time contract and none of the boundary
+treatment, which belongs to the APK module.
 
 The host app supplies Kotlin stdlib, Compose, and most AndroidX artifacts. Do **not** bundle duplicate runtime libraries in your plugin APK.
 
@@ -227,24 +243,16 @@ and you get a runtime `NoSuchFieldError` (or similar linkage failure) the first 
 code executes. In practice this is often invisible until then: the tool just silently disappears
 from the **Tools** list, or fails when activated.
 
-**Fix: give R8 a unique repackage target per app.** Add to your `proguard-rules.pro`:
+**Fix: give R8 a unique repackage target per app.** The conventions plugin generates this for you,
+from the module's real `applicationId`:
 
 ```proguard
-# Give R8's obfuscated classes a package unique to this app so they can't collide with the
-# host's or another plugin's identically-named obfuscated classes at runtime.
 -repackageclasses <your.applicationId>.obf
 ```
 
-For example, `:gallery` (`applicationId = "vision.combat.c4.ds.sample.gallery"`) uses:
-
-```proguard
--repackageclasses vision.combat.c4.ds.sample.gallery.obf
-```
-
-This only matters when `isMinifyEnabled = true` for the release build type (both sample
-modules in this repo already set it). Every plugin **must** set its own `-repackageclasses`
-value derived from its own `applicationId` — copying another app's value defeats the fix,
-since the whole point is that the target package is unique per APK.
+It is generated rather than hand-written precisely because the value **must** be unique per APK —
+copying another app's value defeats the fix, and a hand-written one silently rots when the
+`applicationId` changes.
 
 **That's the only custom rule you need — don't add a blanket `-keep`.** The c4ds SDK ships
 its own *consumer* ProGuard rules, which every plugin inherits automatically just by
@@ -292,19 +300,25 @@ release runtime classpath:
 ./gradlew :yourModule:dependencies --configuration releaseRuntimeClasspath
 ```
 
-Flag anything the host already ships (Kotlin stdlib, Compose, AndroidX, Coroutines, Room, …)
-and exclude it on the specific dependency that leaks it — for example, if some third-party
-library dragged coroutines in:
+The conventions plugin already excludes the usual suspects — Kotlin stdlib, coroutines and
+kotlinx-serialization — from the **runtime** classpath only, leaving the compile classpath intact.
+(A blanket `configurations.all { exclude(...) }` would strip the SDK's own `compileOnly` copy too
+and break compilation; scoping to `…RuntimeClasspath` is what makes it safe.)
+
+For anything else the host ships that your dependency graph drags in, declare it and the plugin
+excludes it the same way:
 
 ```kotlin
-implementation(libs.someThirdPartyLib) {
-    exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-android")
-    exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-core")
+combat {
+    hostProvidedLibraries.add("com.example:some-library")
+    hostProvidedPackages.add("com.example.somelibrary.")
 }
 ```
 
-Don't reach for a blanket `configurations.all { exclude(...) }` — that would also strip the
-SDK's own `compileOnly` copy of the library and break compilation.
+You do not have to find these by hand. `verify<Variant>C4dsBoundary` runs after `assembleRelease`, reads your
+APK's own `mapping.txt`, and fails the build naming every class that came from a host-provided
+package or that shares a name the host's R8 run can also produce. A duplicate that would have been a
+crash on a user's device becomes a build error instead.
 
 **Kodein, kotlinx-serialization, and Room keeps are already covered — you don't need to add
 them.** `compileOnly` dependencies normally don't bring their library's own consumer ProGuard

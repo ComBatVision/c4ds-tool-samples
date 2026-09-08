@@ -11,6 +11,9 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        // Temporary: resolves the vision.combat.c4.ds plugin from a local publish. Replace with the
+        // Nexus maven-sdk repository once the plugin is published there.
+        mavenLocal()
     }
 }
 @Suppress("UnstableApiUsage")
@@ -27,6 +30,3 @@ rootProject.name = "c4ds-tool-samples"
 
 include(":gallery")
 include(":isolation")
-include(":bookmarks:domain")
-include(":bookmarks:data")
-include(":bookmarks:app")

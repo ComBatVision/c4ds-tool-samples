@@ -3,12 +3,11 @@
 <img width="1000" alt="Sample Gallery hub in ComBat 4" src="https://github.com/user-attachments/assets/bf1b3f82-b4e5-46ed-bfe9-7cb2cdddd0f1" />
 
 **A copy-pasteable reference for every public SDK surface exposed to external ComBat 4 Dismounted
-Soldier (C4DS) tools** — 27 runnable samples across 14 categories, launched from an in-app
+Soldier (C4DS) tools** — 27 runnable samples across 13 categories, launched from an in-app
 **Sample Gallery** hub.
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.4.0-7F52FF?logo=kotlin)](gradle/libs.versions.toml)
-[![AGP](https://img.shields.io/badge/AGP-9.2.1-3DDC84?logo=android)](gradle/libs.versions.toml)
-[![c4ds-sdk](https://img.shields.io/badge/c4ds--sdk-0.5.1-blue)](gradle/libs.versions.toml)
+[![AGP](https://img.shields.io/badge/AGP-9.3.1-3DDC84?logo=android)](gradle/libs.versions.toml)
+[![c4ds-sdk](https://img.shields.io/badge/c4ds--sdk-0.5.5-blue)](gradle/libs.versions.toml)
 [![minSdk](https://img.shields.io/badge/minSdk-26-brightgreen)](gallery/build.gradle.kts)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
@@ -39,9 +38,9 @@ Soldier (C4DS) tools** — 27 runnable samples across 14 categories, launched fr
 |---|---|
 | Host app | [ComBat 4 DS](https://play.google.com/store/apps/details?id=vision.combat.c4.ds) |
 | Maven access | [support@combat.vision](mailto:support@combat.vision) → [Nexus SDK](https://nexus.combat.vision/#browse/browse:maven-sdk:vision%2Fcombat%2Fc4ds-sdk) |
-| SDK | `c4ds-sdk` `0.5.1` (see `gradle/libs.versions.toml`) |
-| Kotlin | `2.4.0` — must match host for binary compatibility |
-| Compose | TBD — not pinned in this repo; use the Kotlin K2 Compose compiler shipped with `kotlin = "2.4.0"` |
+| SDK | `c4ds-sdk` `0.5.5` (see `gradle/libs.versions.toml`) |
+| Build plugin | `vision.combat.c4.ds`, published at the SDK's version — brings the SDK dependencies and the host's Kotlin/Compose versions, so neither is pinned here |
+| AGP | `9.3.1` — the version the host app is built with |
 | NDK + CMake | Only for `:isolation` |
 
 Add Nexus credentials to `~/.gradle/gradle.properties`:
@@ -85,7 +84,7 @@ Details: **[Getting started → Tool screen layout](docs/guides/getting-started.
 
 ## Sample catalog
 
-All 28 samples — with screenshots, SDK APIs, source paths, and verification steps — live in the
+All 27 samples — with screenshots, SDK APIs, source paths, and verification steps — live in the
 **[Samples guidebook](docs/guides/samples-catalog.md)**, one collapsible section per category in on-screen
 order. Registry source of truth:
 [`CatalogEntry.kt`](gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/catalog/ui/CatalogEntry.kt).
@@ -103,7 +102,6 @@ order. Registry source of truth:
 11. **[Lifecycle & Services](docs/guides/samples-catalog.md#section-11-lifecycle-services)** — a session `AbstractToolService`, unread badge, and live lifecycle log · 1 sample
 12. **[Host Services](docs/guides/samples-catalog.md#section-12-host-services)** — sharing, clipboard, in-app notifications, and opening a file in another app, and the host-provided library surface · 3 samples
 13. **[Resources & Isolation](docs/guides/samples-catalog.md#section-13-resources-isolation)** — config-qualified resources, M2 widgets, `R.string` collision, and native/cross-APK · 4 samples
-14. **[Architecture](docs/guides/samples-catalog.md#section-14-architecture)** — a multi-module tool (domain/data/app) launched from the hub via cross-APK activation · 1 sample
 
 ---
 

@@ -1,35 +1,19 @@
 [versions]
-agp = "9.2.1"
-kotlin = "2.4.0"
-combat-ds-sdk = "0.5.4"
-desugar-jdk-libs = "2.1.5"
+# Pins the c4ds build-conventions plugin, which brings the SDK and the host's Kotlin/Compose
+# versions with it. Keep `agp` on the version the host app is built with.
+combat-ds-sdk = "0.5.5"
+agp = "9.3.1"
+# Only used by the serialization compiler plugin below; keep it on the Kotlin the conventions
+# plugin brings, so the two cannot drift.
+kotlin = "2.4.10"
 androidx-room = "2.8.4"
 google-ksp-plugin = "2.3.9"
-junit5 = "5.11.4"
-junit5-platform-launcher = "1.11.4"
-kotlinx-coroutines = "1.11.0"
-json-org = "20250107"
 
 [libraries]
-combat-ds-sdk = { group = "vision.combat", name = "c4ds-sdk", version.ref = "combat-ds-sdk" }
-combat-ds-sdk-runtime = { group = "vision.combat", name = "c4ds-sdk-runtime", version.ref = "combat-ds-sdk" }
-
-android-tools-desugar = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
-
-androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "androidx-room" }
-androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "androidx-room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "androidx-room" }
-
-junit5-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5" }
-junit5-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5" }
-junit5-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params", version.ref = "junit5" }
-junit5-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit5-platform-launcher" }
-kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
-json-org = { module = "org.json:json", version.ref = "json-org" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-android-library = { id = "com.android.library", version.ref = "agp" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+combat-plugin = { id = "vision.combat.c4.ds", version.ref = "combat-ds-sdk" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "google-ksp-plugin" }

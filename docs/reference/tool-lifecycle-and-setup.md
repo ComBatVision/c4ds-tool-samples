@@ -14,41 +14,32 @@ together.
 
 ## Gradle setup
 
-A tool module is a plain Android **application** module (`com.android.application`), not a
-library, and it declares **no `Activity`**.
+A plugin module is a plain Android **application** module (`com.android.application`), not a
+library, and it declares **no `Activity`**. Apply the `vision.combat.c4.ds` conventions plugin
+alongside it — it is published with the SDK, at the SDK's version:
 
 ```kotlin
 // your-module/build.gradle.kts
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.combat.plugin)
 }
 
 android {
-    namespace = "com.example.mytool"
-    // compileSdk / minSdk / targetSdk — match whatever the host app you're targeting requires.
+    namespace = "com.example.mytools"
 
     defaultConfig {
-        applicationId = "com.example.mytool"
+        applicationId = "com.example.mytools"
     }
-
-    buildFeatures {
-        compose = true
-    }
-}
-
-// Kotlin stdlib is provided by the host app at runtime — don't duplicate it.
-configurations {
-    getByName("runtimeOnly") {
-        exclude(group = "org.jetbrains.kotlin", module = "kotlin-stdlib")
-    }
-}
-
-dependencies {
-    compileOnly(libs.combat.ds.sdk)
-    runtimeOnly(libs.combat.ds.sdk.runtime)
 }
 ```
+
+That is the whole build script. The conventions plugin supplies the SDK dependencies,
+`compileSdk`/`minSdk`/`targetSdk`, Java 17 and the host's Kotlin/Compose versions, Compose support,
+the release build type with minification, a generated `-repackageclasses`, the host-provided library
+exclusions, and a `verify<Variant>C4dsBoundary` check. See
+**[Getting started — Gradle setup](../guides/getting-started.md#gradle-setup)** for the full list and
+the reasoning behind each item.
 
 Two SDK artifacts, two different Gradle configurations:
 
