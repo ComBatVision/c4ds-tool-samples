@@ -11,6 +11,14 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        // The c4ds build-conventions plugin is published alongside the SDK.
+        maven {
+            url = uri("https://nexus.combat.vision/repository/maven-sdk/")
+            credentials {
+                username = providers.gradleProperty("c4ds_sdk_username").get()
+                password = providers.gradleProperty("c4ds_sdk_password").get()
+            }
+        }
     }
 }
 @Suppress("UnstableApiUsage")
@@ -27,6 +35,3 @@ rootProject.name = "c4ds-tool-samples"
 
 include(":gallery")
 include(":isolation")
-include(":bookmarks:domain")
-include(":bookmarks:data")
-include(":bookmarks:app")

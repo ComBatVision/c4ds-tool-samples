@@ -317,19 +317,4 @@ internal enum class CatalogEntry(
         crossApkInstallStatusMissingResId = R.string.catalog_cross_apk_install_status_missing,
     ),
 
-    // ── ARCHITECTURE ─────────────────────────────────────────────────────
-    BOOKMARKS(
-        section = CatalogSection.ARCHITECTURE,
-        nameResId = R.string.bookmarks_catalog_name,
-        descResId = R.string.bookmarks_catalog_desc,
-        apisResId = R.string.bookmarks_catalog_apis,
-        sourceSubpackage = "bookmarks/app",
-        toolClassName = "vision.combat.c4.ds.sample.bookmarks.BookmarksToolDescriptor",
-        isCrossApk = true,
-        crossApkNotInstalledResId = R.string.bookmarks_cross_apk_not_installed,
-        crossApkInstallIntroResId = R.string.bookmarks_cross_apk_install_intro,
-        crossApkInstallCommandsResId = R.string.bookmarks_cross_apk_install_commands,
-        crossApkInstallStatusInstalledResId = R.string.bookmarks_cross_apk_install_status_installed,
-        crossApkInstallStatusMissingResId = R.string.bookmarks_cross_apk_install_status_missing,
-    ),
 }

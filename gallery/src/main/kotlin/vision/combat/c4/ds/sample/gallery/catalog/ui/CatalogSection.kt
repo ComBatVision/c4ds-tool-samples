@@ -83,9 +83,4 @@ enum class CatalogSection(
         descResId = R.string.section_resources_isolation_desc,
         iconResId = R.drawable.ic_isolation,
     ),
-    ARCHITECTURE(
-        titleResId = R.string.section_architecture_title,
-        descResId = R.string.section_architecture_desc,
-        iconResId = R.drawable.ic_bookmarks,
-    ),
 }

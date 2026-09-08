@@ -30,8 +30,6 @@
     <string name="section_host_services_desc">Сервіси, що надає хост і доступні плагінам: обмін даними, буфер обміну та внутрішні сповіщення — без жодного бандлінгу.</string>
     <string name="section_resources_isolation_title">Ресурси та ізоляція</string>
     <string name="section_resources_isolation_desc">Ресурси з кваліфікаторами, M2-віджети, колізія R.string, assets, нативні бібліотеки (NDK) та ізоляція між APK.</string>
-    <string name="section_architecture_title">Архітектура</string>
-    <string name="section_architecture_desc">Багатомодульна структура інструменту: інверсія залежностей UI → Domain ← Data між реальними межами модулів Gradle.</string>
     <string name="catalog_details">Деталі</string>
     <string name="catalog_sdk_apis_label">SDK API</string>
     <string name="catalog_source_label">Пакет джерела</string>
@@ -463,14 +461,5 @@
     <string name="catalog_cross_apk_install_status_installed">Статус: APK :isolation встановлено — поверніться до хабу та натисніть цей зразок для запуску.</string>
     <string name="catalog_cross_apk_install_status_missing">Статус: APK :isolation ще не встановлено.</string>
 
-    <!-- Architecture / Bookmarks (cross-APK) -->
-    <string name="bookmarks_catalog_name">Закладки (мультимодульний)</string>
-    <string name="bookmarks_catalog_desc">Окремий мультимодульний зразок: модулі Gradle domain/data/app демонструють інверсію залежностей, Kodein DI та MVI, упаковані як окремий APK, що виявляється хостом.</string>
-    <string name="bookmarks_catalog_apis">AbstractTool, ToolDescriptor, ToolComponent.Window, Kodein subDI/import, tool-scoped Room database via CommonSessionStorageInteractor.getUserDirectoryPath, MVI StateFlow + Action + Channel</string>
-    <string name="bookmarks_cross_apk_not_installed">APK Закладок не встановлено.</string>
-    <string name="bookmarks_cross_apk_install_intro">Зберіть і встановіть APK Закладок, потім відкрийте Галерею зразків у списку інструментів ComBat 4:</string>
-    <string name="bookmarks_cross_apk_install_commands">./gradlew :bookmarks:app:installDebug</string>
-    <string name="bookmarks_cross_apk_install_status_installed">Статус: APK :bookmarks:app встановлено — поверніться до хабу та натисніть цей зразок для запуску.</string>
-    <string name="bookmarks_cross_apk_install_status_missing">Статус: APK :bookmarks:app ще не встановлено.</string>
 </resources>
 

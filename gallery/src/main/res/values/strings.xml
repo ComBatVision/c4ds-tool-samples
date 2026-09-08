@@ -30,8 +30,6 @@
     <string name="section_host_services_desc">Host-provided, plugin-accessible services: sharing, clipboard, and in-app notifications — no bundling required.</string>
     <string name="section_resources_isolation_title">Resources &amp; Isolation</string>
     <string name="section_resources_isolation_desc">Config-qualified resources, Material widgets, R.string collision, assets, native libraries (NDK), and cross-APK isolation.</string>
-    <string name="section_architecture_title">Architecture</string>
-    <string name="section_architecture_desc">Multi-module tool structure: UI → Domain ← Data dependency inversion across real Gradle module boundaries.</string>
     <string name="catalog_details">Details</string>
     <string name="catalog_sdk_apis_label">SDK APIs</string>
     <string name="catalog_source_label">Source subpackage</string>
@@ -464,14 +462,5 @@
     <string name="catalog_cross_apk_install_status_installed">Status: :isolation APK is installed — return to the hub and tap this sample to launch.</string>
     <string name="catalog_cross_apk_install_status_missing">Status: :isolation APK is not installed yet.</string>
 
-    <!-- Architecture / Bookmarks (cross-APK) -->
-    <string name="bookmarks_catalog_name">Bookmarks (multi-module)</string>
-    <string name="bookmarks_catalog_desc">Standalone multi-module sample: domain/data/app Gradle modules demonstrating dependency inversion, Kodein DI, and MVI, packaged as its own discoverable APK.</string>
-    <string name="bookmarks_catalog_apis">AbstractTool, ToolDescriptor, ToolComponent.Window, Kodein subDI/import, tool-scoped Room database via CommonSessionStorageInteractor.getUserDirectoryPath, MVI StateFlow + Action + Channel</string>
-    <string name="bookmarks_cross_apk_not_installed">Bookmarks APK not installed.</string>
-    <string name="bookmarks_cross_apk_install_intro">Build and install the Bookmarks APK, then open Sample Gallery from ComBat 4 Tools:</string>
-    <string name="bookmarks_cross_apk_install_commands">./gradlew :bookmarks:app:installDebug</string>
-    <string name="bookmarks_cross_apk_install_status_installed">Status: :bookmarks:app APK is installed — return to the hub and tap this sample to launch.</string>
-    <string name="bookmarks_cross_apk_install_status_missing">Status: :bookmarks:app APK is not installed yet.</string>
 </resources>
 

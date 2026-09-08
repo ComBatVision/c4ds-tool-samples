@@ -210,7 +210,7 @@ them (with the bundling caveats above):
   popup-context surprises; see [Resource & isolation — Material widgets across the window boundary](resource-and-isolation.md#material-widgets-across-the-window-boundary).
 - **`androidx.room:room-compiler`** — a build-time KSP processor, never a runtime class. Declare
   `ksp(androidx.room.compiler)` yourself; the runtime stays host-provided.
-- **`com.android.tools:desugar_jdk_libs`** — declare `coreLibraryDesugaring(...)` in your own module.
+- **`com.android.tools:desugar_jdk_libs`** — supplied by the `vision.combat.c4.ds` conventions plugin, which enables core library desugaring and declares the dependency for you.
 - **Retrofit / Moshi / Gson / OkHttp** — Ktor + kotlinx-serialization are the provided stack, and
   the only one plugins should use. OkHttp resolves at runtime for legacy reasons but is not a
   supported choice; see [Present in the host, but not on the api graph](#present-in-the-host-but-not-on-the-api-graph).
