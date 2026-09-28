@@ -20,10 +20,13 @@ import vision.combat.c4.ds.sdk.tool.ToolParams
  * endpoint over HTTP, then keeps the list current from the EMSC WebSocket, merging revisions by
  * id and reconnecting with backoff. The domain exposes only `Flow<List<Earthquake>>`; frames,
  * sockets and reconnects never leave the data layer, and loading/unavailable are UI state. The
- * UI renders earthquakes in a list and moves the host map to the one the user taps.
+ * UI renders earthquakes in a list and as ripple placemarks on the map (the tool is an
+ * [vision.combat.c4.ds.sdk.tool.AbstractMapTool]), and moves the host map to the one the user
+ * taps.
  *
  * SDK APIs demonstrated:
  *   - HttpClient(OkHttp) + WebSockets + ContentNegotiation (host-provided Ktor)
+ *   - AbstractMapTool.addRenderable / removeRenderable with WorldWind Placemark
  *   - CommonMapInteractor.focusOnLocation
  *   - CommonLocaleSettingsInteractor.coordinateSystemFormat
  *

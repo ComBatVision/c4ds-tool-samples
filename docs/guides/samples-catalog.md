@@ -640,6 +640,9 @@ behind a `WeatherRepository` interface; every Ktor and serialization class comes
 
 <table>
 <tr>
+<td width="280" valign="top">
+<img src="https://github.com/user-attachments/assets/2ef95fcc-dba9-4a53-b69f-d27aef318fb4" width="260" alt="Live Earthquakes sample active — ripple placemarks colored by magnitude over the Americas on the map, and the live list of earthquakes with magnitude badges, region, depth and coordinates in the tool window">
+</td>
 <td valign="top">
 
 A live earthquake feed pushed over a WebSocket by EMSC (keyless), built with the Ktor client the
@@ -658,15 +661,20 @@ The sample is about layering: socket knowledge stays in the data layer.
   with Retry). A live list of earthquakes (magnitude badge, region, relative time, depth,
   coordinates in the user's format); tapping one moves the host map to it — the ViewModel calls
   `CommonMapInteractor.focusOnLocation` directly.
+- **Map:** the tool is an `AbstractMapTool` and the map view of the same ViewModel (from its
+  `ViewModelStore`): it draws each earthquake in the UI state as a ripple placemark in its
+  renderable layer, in the same severity colors as the list, sized
+  by magnitude (images from `RippleImages`). It syncs by id, so only new or revised earthquakes
+  are redrawn.
 
 > The OkHttp engine is on the plugin classpath from SDK 0.6.1. Against an older SDK the host
 > still ships it, but you would have to declare it `compileOnly` at the host's Ktor version.
 
-**SDK APIs:** `HttpClient(OkHttp)`, `WebSockets`, `client.webSocket`, `ContentNegotiation`, `CommonMapInteractor.focusOnLocation`, `CommonLocaleSettingsInteractor.coordinateSystemFormat`, `diViewModel`.
+**SDK APIs:** `HttpClient(OkHttp)`, `WebSockets`, `client.webSocket`, `ContentNegotiation`, `AbstractMapTool.addRenderable`, `Placemark`, `CommonMapInteractor.focusOnLocation`, `CommonLocaleSettingsInteractor.coordinateSystemFormat`, `diViewModel`.
 
 **Source:** [`gallery/.../websocket/`](../../gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/websocket) · **Descriptor:** `vision.combat.c4.ds.sample.gallery.websocket.WebSocketToolDescriptor`
 
-**Verify:** Open **Live Earthquakes** → "Loading recent earthquakes…", then up to 30 recent earthquakes, newest first, and a green "Live" status → leave it open for a few minutes: new reports appear at the top without any action → tap an earthquake: the map moves to it → change the coordinate format in settings: coordinates update → with connectivity off, the feed retries quietly and then shows "The earthquake feed is unavailable" with **Retry** and a toast, instead of crashing.
+**Verify:** Open **Live Earthquakes** → "Loading recent earthquakes…", then up to 30 recent earthquakes, newest first, and a green "Live" status → the map shows a colored ripple for each earthquake → leave it open for a few minutes: new reports appear at the top without any action → tap an earthquake: the map moves to it → change the coordinate format in settings: coordinates update → with connectivity off, the feed retries quietly and then shows "The earthquake feed is unavailable" with **Retry** and a toast, instead of crashing.
 
 </td>
 </tr>

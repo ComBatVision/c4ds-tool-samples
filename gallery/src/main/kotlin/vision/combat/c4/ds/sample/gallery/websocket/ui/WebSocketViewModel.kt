@@ -40,8 +40,8 @@ internal class WebSocketViewModel(
 
     private var feedJob: Job? = null
 
-    // The feed is collected in viewModelScope: it stays open while the ViewModel lives and closes
-    // when it is cleared.
+    // The feed is collected in viewModelScope: it stays open while the ViewModel lives (the
+    // tool's lifetime — the tool reads the same state for the map) and closes when it is cleared.
     init {
         observeFeed()
     }
@@ -90,6 +90,8 @@ internal class WebSocketViewModel(
         region = region,
         timeEpochMillis = timeEpochMillis,
         depthKm = depthKm.toInt(),
+        latitude = latitude,
+        longitude = longitude,
         coordinates = Position.fromDegrees(latitude, longitude, 0.0).toString(format),
     )
 
@@ -108,6 +110,8 @@ internal class WebSocketViewModel(
             val region: String,
             val timeEpochMillis: Long,
             val depthKm: Int,
+            val latitude: Double,
+            val longitude: Double,
             val coordinates: String?,
         )
     }
