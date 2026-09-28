@@ -23,7 +23,7 @@
     <string name="section_model_management_title">Model Management</string>
     <string name="section_model_management_desc">CommonModelInteractor create/consume/commit, symbol keys, and model selection events.</string>
     <string name="section_data_management_title">Data Management</string>
-    <string name="section_data_management_desc">Isolated file I/O, plugin-scoped SharedPreferences, an isolated Room database, and network requests with the host-provided Ktor client.</string>
+    <string name="section_data_management_desc">Isolated file I/O, plugin-scoped SharedPreferences, an isolated Room database, network requests, and a live WebSocket with the host-provided Ktor client.</string>
     <string name="section_lifecycle_services_title">Lifecycle &amp; Services</string>
     <string name="section_lifecycle_services_desc">A session AbstractToolService doing background work, an unread badge on the tool list item, and a live tool lifecycle log.</string>
     <string name="section_host_services_title">Host Services</string>

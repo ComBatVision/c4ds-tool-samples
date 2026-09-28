@@ -28,6 +28,7 @@ import vision.combat.c4.ds.sample.gallery.uicatalog.UiCatalogToolDescriptor
 import vision.combat.c4.ds.sample.gallery.underlay.UnderlayToolDescriptor
 import vision.combat.c4.ds.sample.gallery.window.map.MapWindowToolDescriptor
 import vision.combat.c4.ds.sample.gallery.window.multiscreen.WindowMultiScreenToolDescriptor
+import vision.combat.c4.ds.sample.gallery.websocket.WebSocketToolDescriptor
 import vision.combat.c4.ds.sample.gallery.window.singlescreen.WindowSingleScreenToolDescriptor
 import vision.combat.c4.ds.sdk.tool.requireQualifiedName
 
@@ -239,6 +240,14 @@ internal enum class CatalogEntry(
         apisResId = R.string.network_apis,
         sourceSubpackage = "network",
         toolClassName = requireQualifiedName<NetworkToolDescriptor>(),
+    ),
+    WEBSOCKET(
+        section = CatalogSection.DATA_MANAGEMENT,
+        nameResId = R.string.websocket_tool_name,
+        descResId = R.string.websocket_desc,
+        apisResId = R.string.websocket_apis,
+        sourceSubpackage = "websocket",
+        toolClassName = requireQualifiedName<WebSocketToolDescriptor>(),
     ),
 
     // ── LIFECYCLE & SERVICES ──────────────────────────────────────────────

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- WebSocket sample -->
+    <string name="websocket_tool_name">Live Earthquakes</string>
+    <string name="websocket_desc">A live earthquake feed over a WebSocket with the host-provided Ktor client on the OkHttp engine. The data layer merges an HTTP backlog with pushed events and reconnects on its own; the domain and UI only see Earthquake models. Tap an earthquake to move the map to it.</string>
+    <string name="websocket_apis">HttpClient(OkHttp), WebSockets plugin, client.webSocket, ContentNegotiation, CommonMapInteractor.focusOnLocation, CommonLocaleSettingsInteractor</string>
+    <string name="websocket_explainer">Earthquakes worldwide as seismological agencies report them, pushed over a WebSocket by EMSC. The list starts with recent events and updates on its own. Tap an earthquake to show it on the map.</string>
+
+    <!-- Feed status -->
+    <string name="websocket_status_loading">Loading recent earthquakes…</string>
+    <string name="websocket_status_live">Live — new reports appear automatically</string>
+    <string name="websocket_status_unavailable">The earthquake feed is unavailable.</string>
+    <string name="websocket_retry">Retry</string>
+
+    <!-- Earthquake list item -->
+    <!-- %2$s is the magnitude scale reported by the agency, e.g. "mb" or "ml" -->
+    <string name="websocket_depth_scale">Depth %1$d km · scale %2$s</string>
+    <string name="websocket_attribution">Data: EMSC, seismicportal.eu</string>
+
+    <!-- Errors -->
+    <string name="websocket_error_feed">Feed failed:</string>
+    <string name="websocket_error_unknown">Unknown error</string>
+</resources>

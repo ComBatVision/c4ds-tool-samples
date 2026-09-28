@@ -23,7 +23,7 @@
     <string name="section_model_management_title">Робота з моделями</string>
     <string name="section_model_management_desc">CommonModelInteractor: create/consume/commit, ключі символів та події вибору моделей.</string>
     <string name="section_data_management_title">Робота з даними</string>
-    <string name="section_data_management_desc">Ізольований файловий I/O, SharedPreferences у контексті плагіну, ізольована база даних Room і мережеві запити через Ktor-клієнт хоста.</string>
+    <string name="section_data_management_desc">Ізольований файловий I/O, SharedPreferences у контексті плагіну, ізольована база даних Room, мережеві запити та WebSocket наживо через Ktor-клієнт хоста.</string>
     <string name="section_lifecycle_services_title">Lifecycle &amp; Services</string>
     <string name="section_lifecycle_services_desc">Сеансовий AbstractToolService з фоновою роботою, значком непрочитаного на елементі списку та журналом життєвого циклу інструмента.</string>
     <string name="section_host_services_title">Сервіси хоста</string>

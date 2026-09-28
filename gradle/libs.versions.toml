@@ -1,11 +1,11 @@
 [versions]
 # Pins the c4ds build-conventions plugin, which brings the SDK and the host's Kotlin/Compose
 # versions with it. Keep `agp` on the version the host app is built with.
-combat-ds-sdk = "0.5.5"
+combat-ds-sdk = "0.6.1"
 agp = "9.3.1"
 # Only used by the serialization compiler plugin below; keep it on the Kotlin the conventions
 # plugin brings, so the two cannot drift.
-kotlin = "2.4.10"
+kotlin = "2.4.20"
 androidx-room = "2.8.4"
 google-ksp-plugin = "2.3.9"
 

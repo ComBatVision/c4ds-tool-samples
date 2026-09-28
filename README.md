@@ -7,7 +7,7 @@ Soldier (C4DS) tools** — 27 runnable samples across 13 categories, launched fr
 **Sample Gallery** hub.
 
 [![AGP](https://img.shields.io/badge/AGP-9.3.1-3DDC84?logo=android)](gradle/libs.versions.toml)
-[![c4ds-sdk](https://img.shields.io/badge/c4ds--sdk-0.5.5-blue)](gradle/libs.versions.toml)
+[![c4ds-sdk](https://img.shields.io/badge/c4ds--sdk-0.6.1-blue)](gradle/libs.versions.toml)
 [![minSdk](https://img.shields.io/badge/minSdk-26-brightgreen)](gallery/build.gradle.kts)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
@@ -38,7 +38,7 @@ Soldier (C4DS) tools** — 27 runnable samples across 13 categories, launched fr
 |---|---|
 | Host app | [ComBat 4 DS](https://play.google.com/store/apps/details?id=vision.combat.c4.ds) |
 | Maven access | [support@combat.vision](mailto:support@combat.vision) → [Nexus SDK](https://nexus.combat.vision/#browse/browse:maven-sdk:vision%2Fcombat%2Fc4ds-sdk) |
-| SDK | `c4ds-sdk` `0.5.5` (see `gradle/libs.versions.toml`) |
+| SDK | `c4ds-sdk` `0.6.1` (see `gradle/libs.versions.toml`) |
 | Build plugin | `vision.combat.c4.ds`, published at the SDK's version — brings the SDK dependencies and the host's Kotlin/Compose versions, so neither is pinned here |
 | AGP | `9.3.1` — the version the host app is built with |
 | NDK + CMake | Only for `:isolation` |
@@ -87,7 +87,7 @@ Details: **[Getting started → Tool screen layout](docs/guides/getting-started.
 
 ## Sample catalog
 
-All 27 samples — with screenshots, SDK APIs, source paths, and verification steps — live in the
+All 28 samples — with screenshots, SDK APIs, source paths, and verification steps — live in the
 **[Samples guidebook](docs/guides/samples-catalog.md)**, one collapsible section per category in on-screen
 order. Registry source of truth:
 [`CatalogEntry.kt`](gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/catalog/ui/CatalogEntry.kt).
@@ -101,7 +101,7 @@ order. Registry source of truth:
 7. **[Tool Dialogs](docs/guides/samples-catalog.md#section-7-tool-dialogs)** — `ToolDialog` variants: Confirmation, Destructive, Info, and Custom · 1 sample
 8. **[Tool Management](docs/guides/samples-catalog.md#section-8-tool-management)** — activate, deactivate, and inspect tools via `ToolManager` · 1 sample
 9. **[Model Management](docs/guides/samples-catalog.md#section-9-model-management)** — `CommonModelInteractor` create/consume/commit, symbol keys, and selection events · 1 sample
-10. **[Data Management](docs/guides/samples-catalog.md#section-10-data-management)** — isolated file I/O, plugin-scoped `SharedPreferences`, Room, and Ktor network requests · 2 samples
+10. **[Data Management](docs/guides/samples-catalog.md#section-10-data-management)** — isolated file I/O, plugin-scoped `SharedPreferences`, Room, Ktor network requests, and WebSockets · 3 samples
 11. **[Lifecycle & Services](docs/guides/samples-catalog.md#section-11-lifecycle-services)** — a session `AbstractToolService`, unread badge, and live lifecycle log · 1 sample
 12. **[Host Services](docs/guides/samples-catalog.md#section-12-host-services)** — sharing, clipboard, in-app notifications, and opening a file in another app, and the host-provided library surface · 3 samples
 13. **[Resources & Isolation](docs/guides/samples-catalog.md#section-13-resources-isolation)** — config-qualified resources, M2 widgets, `R.string` collision, and native/cross-APK · 4 samples

@@ -2,7 +2,7 @@
 
 **[← README](../../README.md)** · **[Getting started](getting-started.md)** · **[Plugin isolation](plugin-isolation.md)**
 
-The developer guidebook for this repository: all 27 samples with a screenshot, description, SDK APIs,
+The developer guidebook for this repository: all 28 samples with a screenshot, description, SDK APIs,
 source path, and verification steps — grouped by the 13 catalog sections in on-screen order. Each
 section below is collapsible; expand the ones you are extending.
 
@@ -79,6 +79,7 @@ c4ds-tool-samples/
 │       ├── model/               # Model Management — CommonModelInteractor
 │       ├── storage/             # Data Management — files, SharedPreferences, Room
 │       ├── network/             # Data Management — network requests with the host-provided Ktor client
+│       ├── websocket/           # Data Management — live earthquake feed over a WebSocket (Ktor OkHttp engine)
 │       ├── service/             # Lifecycle & Services — AbstractToolService
 │       ├── hostservices/        # Host Services — ShareManager, LocalClipboard, InAppNotificationManager
 │       ├── hostlibs/            # Host Libraries — Coil, Accompanist, mil-sym (obfuscation-safe)
@@ -574,7 +575,7 @@ Sub-screens:
 
 <a id="section-10-data-management"></a>
 <details>
-<summary><strong>💾 Section 10 — Data Management</strong> · 2 samples — <em>Isolated file I/O, plugin-scoped SharedPreferences, an isolated Room database, and network requests with the host-provided Ktor client.</em></summary>
+<summary><strong>💾 Section 10 — Data Management</strong> · 3 samples — <em>Isolated file I/O, plugin-scoped SharedPreferences, an isolated Room database, network requests, and a live WebSocket with the host-provided Ktor client.</em></summary>
 
 #### Data Management
 
@@ -630,6 +631,42 @@ behind a `WeatherRepository` interface; every Ktor and serialization class comes
 **Source:** [`gallery/.../network/`](../../gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/network) · **Descriptor:** `vision.combat.c4.ds.sample.gallery.network.NetworkToolDescriptor`
 
 **Verify:** Select a position on the map → open **Network Requests** → the window shows that position → **Fetch Weather** shows a progress row, then the Current Weather card (condition, temperature, humidity, wind, observation time) → with connectivity off, **Fetch Weather** shows a "Request failed" toast instead of crashing.
+
+</td>
+</tr>
+</table>
+
+#### Live Earthquakes (WebSockets)
+
+<table>
+<tr>
+<td valign="top">
+
+A live earthquake feed pushed over a WebSocket by EMSC (keyless), built with the Ktor client the
+host already provides. The SDK's `HttpClient(Android)` engine is `HttpURLConnection`-based and
+**cannot open WebSockets**, so the tool binds its own untagged `HttpClient` on the **OkHttp**
+engine, with `WebSockets` and `ContentNegotiation` installed. One client serves both calls.
+
+The sample is about layering: socket knowledge stays in the data layer.
+
+- **Data:** `EmscApiService` wraps the HTTP backlog query and `client.webSocket` (as a cold
+  `channelFlow`). `EarthquakeRepositoryImpl` loads recent events first, then merges every pushed
+  event by id (agencies revise magnitudes after the first report) and reconnects with backoff.
+- **Domain:** `EarthquakeRepository.observeRecentEarthquakes(): Flow<List<Earthquake>>` — no
+  frames, no connection states; `EarthquakeInteractor` passes it through.
+- **UI:** the ViewModel collects the feed and owns the screen state (loading, live, unavailable
+  with Retry). A live list of earthquakes (magnitude badge, region, relative time, depth,
+  coordinates in the user's format); tapping one moves the host map to it — the ViewModel calls
+  `CommonMapInteractor.focusOnLocation` directly.
+
+> The OkHttp engine is on the plugin classpath from SDK 0.6.1. Against an older SDK the host
+> still ships it, but you would have to declare it `compileOnly` at the host's Ktor version.
+
+**SDK APIs:** `HttpClient(OkHttp)`, `WebSockets`, `client.webSocket`, `ContentNegotiation`, `CommonMapInteractor.focusOnLocation`, `CommonLocaleSettingsInteractor.coordinateSystemFormat`, `diViewModel`.
+
+**Source:** [`gallery/.../websocket/`](../../gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/websocket) · **Descriptor:** `vision.combat.c4.ds.sample.gallery.websocket.WebSocketToolDescriptor`
+
+**Verify:** Open **Live Earthquakes** → "Loading recent earthquakes…", then up to 30 recent earthquakes, newest first, and a green "Live" status → leave it open for a few minutes: new reports appear at the top without any action → tap an earthquake: the map moves to it → change the coordinate format in settings: coordinates update → with connectivity off, the feed retries quietly and then shows "The earthquake feed is unavailable" with **Retry** and a toast, instead of crashing.
 
 </td>
 </tr>

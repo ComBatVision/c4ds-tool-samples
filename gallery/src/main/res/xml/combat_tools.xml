@@ -28,6 +28,7 @@
     <tool-descriptor name="vision.combat.c4.ds.sample.gallery.toolmanagement.managed.DemoWindowToolDescriptor" />
     <tool-descriptor name="vision.combat.c4.ds.sample.gallery.storage.StorageToolDescriptor" />
     <tool-descriptor name="vision.combat.c4.ds.sample.gallery.network.NetworkToolDescriptor" />
+    <tool-descriptor name="vision.combat.c4.ds.sample.gallery.websocket.WebSocketToolDescriptor" />
     <tool-descriptor name="vision.combat.c4.ds.sample.gallery.mapoverlays.overlayisdefault.OverlayDefaultToolDescriptor" />
     <tool-descriptor name="vision.combat.c4.ds.sample.gallery.mapoverlays.overlayisdefault.managed.DemoOverlayADescriptor" />
     <tool-descriptor name="vision.combat.c4.ds.sample.gallery.mapoverlays.overlayisdefault.managed.DemoOverlayBDescriptor" />
