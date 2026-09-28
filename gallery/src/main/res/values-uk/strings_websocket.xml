@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- WebSocket sample — Ukrainian -->
+    <string name="websocket_tool_name">Землетруси наживо</string>
+    <string name="websocket_desc">Потік землетрусів наживо через WebSocket з Ktor-клієнтом хоста на рушії OkHttp. Шар даних поєднує HTTP-запит недавніх подій із подіями, що надходять через сокет, і сам перепідключається; домен і UI бачать лише моделі Earthquake. Натисніть на землетрус, щоб перемістити до нього мапу.</string>
+    <string name="websocket_apis">HttpClient(OkHttp), WebSockets plugin, client.webSocket, ContentNegotiation, CommonMapInteractor.focusOnLocation, CommonLocaleSettingsInteractor</string>
+    <string name="websocket_explainer">Землетруси по всьому світу в міру того, як про них повідомляють сейсмологічні агенції; EMSC надсилає їх через WebSocket. Список починається з недавніх подій і оновлюється сам. Натисніть на землетрус, щоб показати його на мапі.</string>
+
+    <!-- Feed status -->
+    <string name="websocket_status_loading">Завантаження недавніх землетрусів…</string>
+    <string name="websocket_status_live">Наживо — нові повідомлення з\'являються автоматично</string>
+    <string name="websocket_status_unavailable">Потік землетрусів недоступний.</string>
+    <string name="websocket_retry">Повторити</string>
+
+    <!-- Earthquake list item -->
+    <string name="websocket_depth_scale">Глибина %1$d км · шкала %2$s</string>
+    <string name="websocket_attribution">Дані: EMSC, seismicportal.eu</string>
+
+    <!-- Errors -->
+    <string name="websocket_error_feed">Помилка потоку:</string>
+    <string name="websocket_error_unknown">Невідома помилка</string>
+</resources>
