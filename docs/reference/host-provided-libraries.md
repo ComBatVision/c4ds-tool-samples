@@ -13,7 +13,7 @@ for why bundling a host-provided library breaks R8 builds, and
 [Review rules — Gradle dependency configuration](../review-rules.md#gradle-dependency-configuration)
 for what a reviewer checks.
 
-> **Versions below are the ones `c4ds-sdk 0.5.1` resolves** (the version this repo pins in
+> **Versions below are the ones `c4ds-sdk 0.6.0` resolves** (the version this repo pins in
 > [`gradle/libs.versions.toml`](../../gradle/libs.versions.toml)). They move with the SDK — regenerate
 > the list for your own SDK version with the command in [Checking it yourself](#checking-it-yourself)
 > rather than copying these numbers into your build.
@@ -39,8 +39,8 @@ incompatible versions of the same class loaded through two classloaders.
 
 | Library                                       | Version  |
 |-----------------------------------------------|----------|
-| `org.jetbrains.kotlin:kotlin-stdlib`          | 2.4.10   |
-| `org.jetbrains.kotlin:kotlin-reflect`         | 2.4.10   |
+| `org.jetbrains.kotlin:kotlin-stdlib`          | 2.4.20   |
+| `org.jetbrains.kotlin:kotlin-reflect`         | 2.4.20   |
 | `org.jetbrains.kotlinx:kotlinx-coroutines-core` | 1.11.0 |
 | `org.jetbrains.kotlinx:kotlinx-serialization-json` | 1.11.0 |
 | `org.jetbrains.kotlinx:kotlinx-serialization-protobuf` | 1.11.0 |
@@ -53,15 +53,15 @@ The host is on **Material 2** (`androidx.compose.material`). Material 3 is *not*
 
 | Library                                          | Version |
 |--------------------------------------------------|---------|
-| `androidx.compose.runtime:runtime`               | 1.11.4  |
-| `androidx.compose.ui:ui`                         | 1.11.4  |
-| `androidx.compose.ui:ui-util`                    | 1.11.4  |
-| `androidx.compose.ui:ui-tooling-preview`         | 1.11.4  |
-| `androidx.compose.foundation:foundation`         | 1.11.4  |
-| `androidx.compose.material:material`             | 1.11.4  |
+| `androidx.compose.runtime:runtime`               | 1.12.0  |
+| `androidx.compose.ui:ui`                         | 1.12.0  |
+| `androidx.compose.ui:ui-util`                    | 1.12.0  |
+| `androidx.compose.ui:ui-tooling-preview`         | 1.12.0  |
+| `androidx.compose.foundation:foundation`         | 1.12.0  |
+| `androidx.compose.material:material`             | 1.12.0  |
 | `androidx.compose.material:material-icons-extended` | 1.7.8 |
 | `androidx.activity:activity-compose`             | 1.13.0  |
-| `androidx.navigation:navigation-compose`         | 2.9.8   |
+| `androidx.navigation:navigation-compose`         | 2.10.0  |
 | `androidx.lifecycle:lifecycle-viewmodel`         | 2.11.0  |
 | `androidx.lifecycle:lifecycle-viewmodel-compose` | 2.11.0  |
 | `androidx.lifecycle:lifecycle-runtime-compose`   | 2.11.0  |
@@ -73,16 +73,16 @@ The host is on **Material 2** (`androidx.compose.material`). Material 3 is *not*
 | Library                       | Version | Note                                                        |
 |-------------------------------|---------|-------------------------------------------------------------|
 | `androidx.core:core`          | 1.19.0  | `core-ktx` 1.18.0 comes along transitively                   |
-| `androidx.appcompat:appcompat`| 1.7.1   |                                                             |
-| `androidx.room:room-runtime`  | 2.8.4   | runtime only — add your own `ksp(androidx.room.compiler)`    |
-| `androidx.room:room-ktx`      | 2.8.4   |                                                             |
+| `androidx.appcompat:appcompat`| 1.8.0   |                                                             |
+| `androidx.room:room-runtime`  | 2.8.5   | runtime only — add your own `ksp(androidx.room.compiler)`    |
+| `androidx.room:room-ktx`      | 2.8.5   |                                                             |
 
 ## Dependency injection
 
 | Library                                            | Version |
 |----------------------------------------------------|---------|
-| `org.kodein.di:kodein-di`                          | 7.32.0  |
-| `org.kodein.di:kodein-di-framework-android-x-compose` | 7.32.0 |
+| `org.kodein.di:kodein-di`                          | 7.33.0  |
+| `org.kodein.di:kodein-di-framework-android-x-compose` | 7.33.0 |
 
 ## Networking and serialization
 
@@ -93,31 +93,31 @@ own `HttpClient` out of these without adding a single dependency.
 
 | Library                                  | Version |
 |------------------------------------------|---------|
-| `io.ktor:ktor-client-core`               | 3.5.1   |
-| `io.ktor:ktor-client-android`            | 3.5.1   |
-| `io.ktor:ktor-client-content-negotiation`| 3.5.1   |
-| `io.ktor:ktor-client-logging`            | 3.5.1   |
-| `io.ktor:ktor-serialization-kotlinx-json`| 3.5.1   |
+| `io.ktor:ktor-client-core`               | 3.5.2   |
+| `io.ktor:ktor-client-android`            | 3.5.2   |
+| `io.ktor:ktor-client-content-negotiation`| 3.5.2   |
+| `io.ktor:ktor-client-logging`            | 3.5.2   |
+| `io.ktor:ktor-serialization-kotlinx-json`| 3.5.2   |
 
 ## Images and media
 
 | Library                        | Version |
 |--------------------------------|---------|
-| `io.coil-kt.coil3:coil-compose`| 3.5.0   |
-| `io.coil-kt.coil3:coil-core`   | 3.5.0   |
-| `io.coil-kt.coil3:coil-video`  | 3.5.0   |
+| `io.coil-kt.coil3:coil-compose`| 3.6.2   |
+| `io.coil-kt.coil3:coil-core`   | 3.6.2   |
+| `io.coil-kt.coil3:coil-video`  | 3.6.2   |
 
 ## Map, model, and military symbology
 
 | Library                                       | Version  |
 |-----------------------------------------------|----------|
-| `earth.worldwind:worldwind`                   | 2.0.7    |
-| `vision.combat:c4model`                       | 1.15.8   |
-| `vision.combat:c4unit`                        | 1.15.8   |
-| `vision.combat:c4view-symbol`                 | 1.15.8   |
-| `io.github.missioncommand:mil-sym-android`    | 2.11.2   |
+| `earth.worldwind:worldwind`                   | 2.0.10   |
+| `vision.combat:c4model`                       | 1.16.1   |
+| `vision.combat:c4unit`                        | 1.16.1   |
+| `vision.combat:c4view-symbol`                 | 1.16.1   |
+| `io.github.missioncommand:mil-sym-android`    | 2.11.1   |
 
-`io.matthewnelson.kmp-file:file` 0.6.1 is also on the api graph, but **none of its 41 classes are in
+`io.matthewnelson.kmp-file:file` 0.6.1 is also on the api graph, but **none of its 104 classes are in
 the host APK** — do not use it. It is a KMP file abstraction that is mostly inline/`expect`-actual,
 so much of it compiles away, but anything that does emit a reference will fail at runtime.
 
@@ -126,7 +126,7 @@ so much of it compiles away, but anything that does emit a reference will fail a
 ## The declared surface vs. the whole classpath
 
 The tables above are the SDK's **declared** `api` surface — the part treated as a contract. Their
-own transitive dependencies are on your compile classpath too, 235 modules in total for 0.5.1.
+own transitive dependencies are on your compile classpath too, 245 modules in total for 0.6.0.
 
 **They compile, but not all of them survive to runtime.** The host is minified with
 `-repackageclasses`, so a class that is not kept by name is renamed to
@@ -144,15 +144,16 @@ in the next SDK release without that counting as a breaking change.
 
 | Library | Version | | Library | Version |
 |---|---|---|---|---|
-| `androidx.activity:activity` | 1.13.0 | | `androidx.appcompat:appcompat-resources` | 1.7.1 |
+| `androidx.activity:activity` | 1.13.0 | | `androidx.appcompat:appcompat-resources` | 1.8.0 |
 | `androidx.annotation:annotation` | 1.10.0 | | `androidx.arch.core:core-runtime` | 2.2.0 |
 | `androidx.collection:collection` | 1.5.0 | | `androidx.core:core-ktx` | 1.18.0 |
 | `androidx.fragment:fragment` | 1.5.4 | | `androidx.lifecycle:lifecycle-livedata` | 2.11.0 |
-| `androidx.loader:loader` | 1.0.0 | | `androidx.room:room-common` | 2.8.4 |
-| `androidx.sqlite:sqlite` | 2.6.2 | | `androidx.savedstate:savedstate` | 1.4.0 |
+| `androidx.loader:loader` | 1.0.0 | | `androidx.room:room-common` | 2.8.5 |
+| `androidx.sqlite:sqlite` | 2.6.2 | | `androidx.savedstate:savedstate` | 1.5.0 |
 | `androidx.vectordrawable:vectordrawable` | 1.1.0 | | `androidx.viewpager:viewpager` | 1.0.0 |
-| `org.jetbrains.kotlinx:kotlinx-io-core` | 0.9.0 | | `org.jetbrains.kotlinx:kotlinx-serialization-core` | 1.11.0 |
+| `org.jetbrains.kotlinx:kotlinx-io-core` | 0.9.1 | | `org.jetbrains.kotlinx:kotlinx-serialization-core` | 1.11.0 |
 | `org.jetbrains.kotlinx:kotlinx-coroutines-android` | 1.11.0 | | `org.slf4j:slf4j-api` | 2.0.18 |
+| `dev.icerock.moko:resources` | 0.26.4 | | | |
 
 ### Not resolvable — do not use
 
@@ -161,9 +162,8 @@ fails at runtime in release:
 
 | Library | Version | Why |
 |---|---|---|
-| `com.squareup.okio:okio` | 3.17.0 | renamed |
+| `com.squareup.okio:okio` | 3.18.1 | renamed |
 | `com.caverock:androidsvg-aar` | 1.4 | renamed |
-| `dev.icerock.moko:resources` | 0.26.4 | renamed |
 | `app.softwork:kotlinx-uuid-core` | 0.1.7 | renamed |
 | `io.matthewnelson.kmp-file:file` | 0.6.1 | absent from the host APK |
 | `org.gavaghan:geodesy` | 1.1.3 | absent from the host APK |
@@ -189,7 +189,7 @@ consumer ProGuard rules keep their names so a plugin can reach them parent-first
 | Library                        | Version | Status |
 |--------------------------------|---------|--------|
 | `org.slf4j:slf4j-api`          | 2.0.18  | usable; already on your compile classpath via Ktor, so no dependency line needed |
-| `com.squareup.okhttp3:okhttp`  | 5.4.0   | **compatibility only — do not use in new plugins** |
+| `com.squareup.okhttp3:okhttp`  | 5.5.0   | **compatibility only — do not use in new plugins** |
 
 **OkHttp is not a supported choice for new work.** Its name is kept because an existing external
 plugin already depends on it, not because plugins are meant to. **Ktor is the single network client
