@@ -7,7 +7,7 @@ Soldier (C4DS) tools** — 27 runnable samples across 13 categories, launched fr
 **Sample Gallery** hub.
 
 [![AGP](https://img.shields.io/badge/AGP-9.3.1-3DDC84?logo=android)](gradle/libs.versions.toml)
-[![c4ds-sdk](https://img.shields.io/badge/c4ds--sdk-0.5.5-blue)](gradle/libs.versions.toml)
+[![c4ds-sdk](https://img.shields.io/badge/c4ds--sdk-0.6.0-blue)](gradle/libs.versions.toml)
 [![minSdk](https://img.shields.io/badge/minSdk-26-brightgreen)](gallery/build.gradle.kts)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
@@ -38,7 +38,7 @@ Soldier (C4DS) tools** — 27 runnable samples across 13 categories, launched fr
 |---|---|
 | Host app | [ComBat 4 DS](https://play.google.com/store/apps/details?id=vision.combat.c4.ds) |
 | Maven access | [support@combat.vision](mailto:support@combat.vision) → [Nexus SDK](https://nexus.combat.vision/#browse/browse:maven-sdk:vision%2Fcombat%2Fc4ds-sdk) |
-| SDK | `c4ds-sdk` `0.5.5` (see `gradle/libs.versions.toml`) |
+| SDK | `c4ds-sdk` `0.6.0` (see `gradle/libs.versions.toml`) |
 | Build plugin | `vision.combat.c4.ds`, published at the SDK's version — brings the SDK dependencies and the host's Kotlin/Compose versions, so neither is pinned here |
 | AGP | `9.3.1` — the version the host app is built with |
 | NDK + CMake | Only for `:isolation` |

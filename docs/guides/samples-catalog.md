@@ -922,10 +922,10 @@ See [Plugin isolation — case (d)](plugin-isolation.md#case-d-pinned-state-surv
 
 | Layer | Choice |
 |---|---|
-| Language | Kotlin `2.4.0` |
-| UI | Jetpack Compose (K2 Compose compiler bundled with Kotlin `2.4.0`) |
-| Build | Android Gradle Plugin `9.2.1`, Gradle `9.5.1` |
-| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.5.1` |
+| Language | Kotlin `2.4.20` |
+| UI | Jetpack Compose (K2 Compose compiler bundled with Kotlin `2.4.20`) |
+| Build | Android Gradle Plugin `9.3.1`, Gradle `9.5.1` |
+| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.6.0` |
 | DI | Kodein (`subDI`, `diViewModel()`) |
 | Persistence | Room `2.8.4`, `SharedPreferences`, plugin-scoped file storage |
 | Annotation processing | KSP `2.3.9` |
