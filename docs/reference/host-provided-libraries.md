@@ -95,9 +95,26 @@ own `HttpClient` out of these without adding a single dependency.
 |------------------------------------------|---------|
 | `io.ktor:ktor-client-core`               | 3.5.2   |
 | `io.ktor:ktor-client-android`            | 3.5.2   |
+| `io.ktor:ktor-client-okhttp`             | 3.5.2 (from SDK 0.6.1) |
 | `io.ktor:ktor-client-content-negotiation`| 3.5.2   |
 | `io.ktor:ktor-client-logging`            | 3.5.2   |
 | `io.ktor:ktor-serialization-kotlinx-json`| 3.5.2   |
+
+### Which engine: WebSockets and SSE
+
+| Engine | Plain HTTP | SSE | WebSockets | On your compile classpath |
+|---|---|---|---|---|
+| `Android` (`ktor-client-android`) | yes | yes | **no** | yes, via the SDK |
+| `OkHttp` (`ktor-client-okhttp`) | yes | yes | yes | yes, via the SDK from 0.6.1 |
+
+The `Android` engine is `HttpURLConnection`-based and cannot upgrade a connection, so
+`client.webSocket(...)` on it fails at runtime. For WebSockets, bind a client on the `OkHttp`
+engine. The engine and the `WebSockets` plugin (part of `ktor-client-core`) both come with the
+SDK, so no dependency line is needed.
+
+Do not use the `CIO` engine: it is in the host only as a stale transitive (3.1.3, against Ktor
+core 3.5.x) and is not part of the contract. See the **Live Earthquakes (WebSockets)** sample in the
+[samples guidebook](../guides/samples-catalog.md#section-10-data-management).
 
 ## Images and media
 
@@ -194,7 +211,8 @@ consumer ProGuard rules keep their names so a plugin can reach them parent-first
 **OkHttp is not a supported choice for new work.** Its name is kept because an existing external
 plugin already depends on it, not because plugins are meant to. **Ktor is the single network client
 for plugins** — it is on the api graph, needs no dependency line, and is what the Network Requests
-sample demonstrates. Nothing in this repository uses OkHttp, deliberately.
+sample demonstrates. Nothing in this repository calls OkHttp's own API, deliberately — the
+Live Earthquakes sample reaches it only as a Ktor engine (`HttpClient(OkHttp)`), which is the supported way.
 
 If you are maintaining that pre-existing plugin, the only workable form is `compileOnly` at exactly
 the host's pinned version: `implementation` would bundle a second copy for R8 to repackage, which is
