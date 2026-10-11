@@ -9,7 +9,7 @@ import vision.combat.c4.ds.sdk.tool.ToolParams
 
 /**
  * Catalog-launched sample showcasing promoted public SDK UI components: six form-field components
- * and five grouped showcases (Buttons, Inputs, Selection, Feedback, Lists).
+ * and six grouped showcases (Buttons, Inputs, Chips field, Selection, Feedback, Lists).
  *
  * Navigation: a list of components -> a per-component detail screen that renders the component in
  * several states (see [vision.combat.c4.ds.sample.gallery.uicatalog.ui.UiCatalogWindow]).
@@ -20,6 +20,8 @@ import vision.combat.c4.ds.sdk.tool.ToolParams
  *   ui.component.button.*, bar.TopAppBar, bar.AppBarActionButton, bar.AppFab,
  *   ui.component.text.OutlinedTextInputField, IntegerStepper, dropdown.*, measurement.*,
  *   coordinates.CoordinatesInputWithSystem,
+ *   ui.component.chip.ChipsField, ChipAutocompleteList, AutoCompleteTextFieldBox, ChipValue, Chip,
+ *   AllChipsDialog (from SDK 0.7.0),
  *   SegmentedButtonRow, SliderWithLabel, checkable.*, RadioGroup, ColorSelector,
  *   AppDialog, Banner, Carousel, Tooltip,
  *   reveal.RevealableLazyColumn, list.ListItem, reveal.EditMenuButton, reveal.DeleteMenuButton,

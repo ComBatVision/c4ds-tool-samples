@@ -54,6 +54,7 @@ private fun ColumnScope.DetailContent(entry: UiCatalogShowcase) {
         UiCatalogShowcase.BUTTONS -> ButtonsDemo()
         UiCatalogShowcase.TOP_APP_BAR -> TopAppBarDemo()
         UiCatalogShowcase.INPUTS -> InputsDemo()
+        UiCatalogShowcase.CHIPS_FIELD -> ChipsFieldDemo()
         UiCatalogShowcase.SELECTION -> SelectionDemo()
         UiCatalogShowcase.FEEDBACK -> FeedbackDemo()
         UiCatalogShowcase.LISTS -> ListsDetailScreen()

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- UI Components Catalog — Chips field showcase — Ukrainian -->
+    <string name="ui_catalog_chips_field_name">Поле з чипами</string>
+    <string name="ui_catalog_chips_field_desc">ChipsField, ChipAutocompleteList, AutoCompleteTextFieldBox, ChipValue, Chip і AllChipsDialog. Поле не має власного стану: запит і вибір зберігає той, хто його викликає.</string>
+
+    <string name="chips_basic_name">Базовий вибір</string>
+    <string name="chips_basic_desc">ChipsField із ChipAutocompleteList усередині AutoCompleteTextFieldBox. Натисніть на поле та вводьте текст, щоб відфільтрувати варіанти; натисніть варіант, щоб додати його, і чип, щоб вилучити. Backspace у порожньому полі обводить останній чип, другий Backspace вилучає його.</string>
+    <string name="chips_create_name">Створення нового елемента</string>
+    <string name="chips_create_desc">Введіть тег, якого немає у списку: перший рядок запропонує створити його. Натисніть рядок або кнопку дії на клавіатурі. Створений тег знову з’явиться серед варіантів, коли ви його вилучите.</string>
+    <string name="chips_states_name">Стани чипів</string>
+    <string name="chips_states_desc">Індикатори стану, іконка на початку, чип, який не можна вилучити (іконка замка), і вимкнений чип — натисніть будь-який із них, щоб побачити пояснення. Варіанти показують опис, час і роль; один варіант є у списку, але його не можна вибрати, а ще один не має назви.</string>
+    <string name="chips_field_states_name">Стани поля</string>
+    <string name="chips_field_states_desc">Перемикайте стани «лише читання», «увімкнено», «помилка» та «завантаження» і вміст у кінці поля. Список показує власне повідомлення, коли збігів немає.</string>
+    <string name="chips_overflow_name">Понад 10 чипів</string>
+    <string name="chips_overflow_desc">Показано лише перші 10 чипів; решта ховається за чипом «+N», який відкриває AllChipsDialog. Кнопка відкриває той самий діалог напряму.</string>
+    <string name="chips_standalone_name">Окремий Chip</string>
+    <string name="chips_standalone_desc">Composable Chip поза полем: увімкнений, вимкнений і виділений, з індикатором стану, з іконками на початку та в кінці.</string>
+
+    <!-- Demo data -->
+    <string-array name="chips_tags">
+        <item>Терміново</item>
+        <item>Розвідка</item>
+        <item>Логістика</item>
+        <item>Медицина</item>
+        <item>Інженерія</item>
+    </string-array>
+
+    <!-- Fields -->
+    <string name="chips_recipients_label">Одержувачі</string>
+    <string name="chips_recipients_placeholder">Введіть позивний</string>
+    <string name="chips_tags_label">Теги</string>
+    <string name="chips_tags_placeholder">Введіть тег</string>
+    <string name="chips_stations_label">Станції</string>
+    <string name="chips_selection_summary">Вибрано (%1$d): %2$s</string>
+    <string name="chips_selection_empty">Нічого не вибрано</string>
+
+    <!-- Chip states -->
+    <string name="chips_station_unnamed">Станція без назви</string>
+    <string name="chips_station_online">На зв’язку</string>
+    <string name="chips_station_offline">Не на зв’язку</string>
+    <string name="chips_station_weak_signal">Слабкий сигнал</string>
+    <string name="chips_station_unreachable">Недоступна</string>
+    <string name="chips_station_busy">Зайнята — вибрати не можна</string>
+    <string name="chips_station_role_observer">Спостерігач</string>
+    <string name="chips_station_role_medic">Медик</string>
+    <string name="chips_station_locked_body">Цю станцію призначив командний пункт, тому вилучити її тут не можна. Її чип не вилучається і показує замок замість іконки закриття.</string>
+    <string name="chips_station_disabled_body">Цю станцію вимкнено. Вимкнений чип не має іконки закриття, і вилучити його не можна.</string>
+    <string name="chips_dialog_ok">OK</string>
+
+    <!-- Field states and overflow -->
+    <string name="chips_flag_read_only">Лише читання</string>
+    <string name="chips_flag_enabled">Увімкнено</string>
+    <string name="chips_flag_error">Помилка</string>
+    <string name="chips_flag_loading">Завантаження</string>
+    <string name="chips_flag_right_content">Вміст у кінці (кнопка скидання)</string>
+    <string name="chips_empty_all_selected">Усі позивні вже вибрано</string>
+    <string name="chips_empty_no_match">Жоден позивний не відповідає «%1$s»</string>
+    <string name="chips_action_show_all">Відкрити AllChipsDialog</string>
+    <string name="chips_action_reset">Скинути</string>
+
+    <!-- Standalone Chip -->
+    <string name="chips_section_chip_basic">Увімкнений, вимкнений, виділений</string>
+    <string name="chips_section_chip_types">Індикатор стану (ChipValue.Type)</string>
+    <string name="chips_section_chip_icons">Іконки</string>
+    <string name="chips_section_chip_click">Обробник натискання</string>
+    <string name="chips_chip_default">Чип</string>
+    <string name="chips_chip_disabled">Вимкнений</string>
+    <string name="chips_chip_highlighted">Виділений</string>
+    <string name="chips_chip_type_active">Active</string>
+    <string name="chips_chip_type_warning">Warning</string>
+    <string name="chips_chip_type_error">Error</string>
+    <string name="chips_chip_type_disabled">Disabled</string>
+    <string name="chips_chip_type_none">None</string>
+    <string name="chips_chip_icon_trailing">Іконка в кінці</string>
+    <string name="chips_chip_icon_leading">Іконка на початку</string>
+    <string name="chips_chip_icon_both">Обидві іконки</string>
+    <string name="chips_chip_clicks">Натиснуто разів: %1$d</string>
+</resources>

@@ -326,8 +326,8 @@
 
     <!-- UI Catalog -->
     <string name="ui_catalog_tool_name">Каталог UI-компонентів</string>
-    <string name="ui_catalog_desc">Навігаційний каталог винесених публічних SDK-компонентів: шість полів форми та групи Buttons, TopAppBar, Inputs, Selection, Feedback і Lists, кожен у кількох станах.</string>
-    <string name="ui_catalog_apis">InlineMessage, HeaderField, ExpandableField, FormFieldBox, NestedForm, HostilitySelector, Buttons, TopAppBar, Inputs, Selection, Feedback, Lists</string>
+    <string name="ui_catalog_desc">Навігаційний каталог винесених публічних SDK-компонентів: шість полів форми та групи Buttons, TopAppBar, Inputs, Chips field, Selection, Feedback і Lists, кожен у кількох станах.</string>
+    <string name="ui_catalog_apis">InlineMessage, HeaderField, ExpandableField, FormFieldBox, NestedForm, HostilitySelector, Buttons, TopAppBar, Inputs, ChipsField, Selection, Feedback, Lists</string>
     <!-- UI Catalog — entries -->
     <string name="ui_catalog_inline_message_name">InlineMessage</string>
     <string name="ui_catalog_inline_message_desc">Анімований вбудований підпис інфо / помилки, що з\'являється та зникає під полем.</string>
