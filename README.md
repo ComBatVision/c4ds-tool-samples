@@ -6,8 +6,8 @@
 Soldier (C4DS) tools** — 27 runnable samples across 13 categories, launched from an in-app
 **Sample Gallery** hub.
 
-[![AGP](https://img.shields.io/badge/AGP-9.3.1-3DDC84?logo=android)](gradle/libs.versions.toml)
-[![c4ds-sdk](https://img.shields.io/badge/c4ds--sdk-0.6.1-blue)](gradle/libs.versions.toml)
+[![AGP](https://img.shields.io/badge/AGP-9.4.1-3DDC84?logo=android)](gradle/libs.versions.toml)
+[![c4ds-sdk](https://img.shields.io/badge/c4ds--sdk-0.7.0-blue)](gradle/libs.versions.toml)
 [![minSdk](https://img.shields.io/badge/minSdk-26-brightgreen)](gallery/build.gradle.kts)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 
@@ -23,8 +23,8 @@ Soldier (C4DS) tools** — 27 runnable samples across 13 categories, launched fr
   session-scoped storage (files, `SharedPreferences`, Room).
 - **Remote data** — a tool-owned Ktor `HttpClient` (all classes host-provided, nothing bundled)
   fetching JSON and mapping it to a domain model behind a repository.
-- **UI building blocks** — the promoted public SDK Compose component catalog plus all four
-  `ToolDialog` variants.
+- **UI building blocks** — the promoted public SDK Compose component catalog, including the
+  stateless chips field, plus all four `ToolDialog` variants.
 - **Plugin isolation** — per-APK `ClassLoader`, resource resolution, Material 2 composition
   fallback, native `.so` loading, and cross-APK tool activation.
 - **A single hub pattern** — one launcher-visible tool activates the other (hidden) tools via `ToolManager`;
@@ -38,9 +38,9 @@ Soldier (C4DS) tools** — 27 runnable samples across 13 categories, launched fr
 |---|---|
 | Host app | [ComBat 4 DS](https://play.google.com/store/apps/details?id=vision.combat.c4.ds) |
 | Maven access | [support@combat.vision](mailto:support@combat.vision) → [Nexus SDK](https://nexus.combat.vision/#browse/browse:maven-sdk:vision%2Fcombat%2Fc4ds-sdk) |
-| SDK | `c4ds-sdk` `0.6.1` (see `gradle/libs.versions.toml`) |
+| SDK | `c4ds-sdk` `0.7.0` (see `gradle/libs.versions.toml`) |
 | Build plugin | `vision.combat.c4.ds`, published at the SDK's version — brings the SDK dependencies and the host's Kotlin/Compose versions, so neither is pinned here |
-| AGP | `9.3.1` — the version the host app is built with |
+| AGP | `9.4.1` — the version the host app is built with |
 | NDK + CMake | Only for `:isolation` |
 
 Add Nexus credentials to `~/.gradle/gradle.properties`:
@@ -97,7 +97,7 @@ order. Registry source of truth:
 3. **[Map Underlay](docs/guides/samples-catalog.md#section-3-map-underlay)** — composables rendered behind the map layer in AR mode · 1 sample
 4. **[Panel Windows](docs/guides/samples-catalog.md#section-4-panel-windows)** — single-screen, multi-screen, and secondary-map panel windows · 3 samples
 5. **[Panel Management](docs/guides/samples-catalog.md#section-5-panel-management)** — open, close, and observe panel state via `PanelManager` · 1 sample
-6. **[UI Components Catalog](docs/guides/samples-catalog.md#section-6-ui-components-catalog)** — promoted public SDK components: form fields, buttons, inputs, and more · 1 sample
+6. **[UI Components Catalog](docs/guides/samples-catalog.md#section-6-ui-components-catalog)** — promoted public SDK components: form fields, buttons, inputs, the chips field, and more · 1 sample
 7. **[Tool Dialogs](docs/guides/samples-catalog.md#section-7-tool-dialogs)** — `ToolDialog` variants: Confirmation, Destructive, Info, and Custom · 1 sample
 8. **[Tool Management](docs/guides/samples-catalog.md#section-8-tool-management)** — activate, deactivate, and inspect tools via `ToolManager` · 1 sample
 9. **[Model Management](docs/guides/samples-catalog.md#section-9-model-management)** — `CommonModelInteractor` create/consume/commit, symbol keys, and selection events · 1 sample

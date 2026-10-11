@@ -28,9 +28,9 @@ To build and run these samples you need:
 | Item | This repo |
 |---|---|
 | Host app | ComBat 4 DS |
-| SDK | `c4ds-sdk` `0.6.1` (see `gradle/libs.versions.toml`) |
+| SDK | `c4ds-sdk` `0.7.0` (see `gradle/libs.versions.toml`) |
 | Kotlin | `2.4.20` |
-| AGP | `9.3.1` |
+| AGP | `9.4.1` |
 | JVM | 17 |
 
 ---
