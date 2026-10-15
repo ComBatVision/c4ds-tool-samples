@@ -1,13 +1,13 @@
 {
   "extraKnownMarketplaces": {
-    "c4ds-tool-samples": {
+    "c4ds-claude-plugin": {
       "source": {
         "source": "github",
-        "repo": "ComBatVision/c4ds-tool-samples"
+        "repo": "ComBatVision/c4ds-claude-plugin"
       }
     }
   },
   "enabledPlugins": {
-    "c4ds@c4ds-tool-samples": true
+    "c4ds@c4ds-claude-plugin": true
   }
 }
