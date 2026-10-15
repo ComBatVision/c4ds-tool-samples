@@ -26,9 +26,9 @@ internal implementation.
 | Wondering whether a library is already on the classpath, or at which version   | [`docs/reference/host-provided-libraries.md`](docs/reference/host-provided-libraries.md) — what `compileOnly(c4ds-sdk)` re-exports, with versions, and what it doesn't                                        |
 | Reviewing a change before it merges                                            | [`docs/review-rules.md`](docs/review-rules.md) — architecture/MVI/DI, threading/lifecycle/Compose, resources/locale, testing, dependency hygiene checklist                                |
 
-Using Claude Code? The `c4ds` plugin from this repo's marketplace scaffolds tools
-(`/c4ds:new-tool`), checks the environment (`/c4ds:doctor`) and updates the SDK and these docs
-(`/c4ds:update-sdk`). See the samples README, section "Claude Code plugin".
+Using Claude Code? The [`c4ds` plugin](https://github.com/ComBatVision/c4ds-claude-plugin)
+scaffolds tools (`/c4ds:new-tool`), checks the environment (`/c4ds:doctor`) and updates the SDK
+and these docs (`/c4ds:update-sdk`).
 
 ---
 
