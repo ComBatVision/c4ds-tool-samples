@@ -470,7 +470,7 @@ Sub-screens:
 </tr>
 </table>
 
-**Chips field** (from SDK 0.7.0) — `ChipsField` keeps no state: each showcase owns the typed query
+**Chips field** (from SDK 0.6.3) — `ChipsField` keeps no state: each showcase owns the typed query
 and the selected chips in `remember`, filters the options itself, and decides in `onChipClicked`
 whether a tap removes the chip. The option list opens while the field is focused, which a shared
 `MutableInteractionSource` reports. Source:
@@ -997,7 +997,7 @@ See [Plugin isolation — case (d)](plugin-isolation.md#case-d-pinned-state-surv
 | Language | Kotlin `2.4.20` |
 | UI | Jetpack Compose (K2 Compose compiler bundled with Kotlin `2.4.20`) |
 | Build | Android Gradle Plugin `9.4.1`, Gradle `9.7.1` |
-| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.7.0` |
+| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.6.3` |
 | DI | Kodein (`subDI`, `diViewModel()`) |
 | Persistence | Room `2.8.5`, `SharedPreferences`, plugin-scoped file storage |
 | Annotation processing | KSP `2.3.12` |

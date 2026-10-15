@@ -19,7 +19,7 @@ import vision.combat.c4.ds.sample.gallery.uicatalog.ui.detail.chips.OverflowDemo
 import vision.combat.c4.ds.sample.gallery.uicatalog.ui.detail.chips.StandaloneChipDemo
 
 /**
- * The stateless chips field of the SDK (from SDK 0.7.0), one showcase per section.
+ * The stateless chips field of the SDK (from SDK 0.6.3), one showcase per section.
  *
  * The field keeps no state of its own: every showcase owns the typed query and the selected chips,
  * filters the options itself, and decides what a tap on a chip means.

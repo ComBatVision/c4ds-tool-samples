@@ -21,7 +21,7 @@ import vision.combat.c4.ds.sdk.tool.ToolParams
  *   ui.component.text.OutlinedTextInputField, IntegerStepper, dropdown.*, measurement.*,
  *   coordinates.CoordinatesInputWithSystem,
  *   ui.component.chip.ChipsField, ChipAutocompleteList, AutoCompleteTextFieldBox, ChipValue, Chip,
- *   AllChipsDialog (from SDK 0.7.0),
+ *   AllChipsDialog (from SDK 0.6.3),
  *   SegmentedButtonRow, SliderWithLabel, checkable.*, RadioGroup, ColorSelector,
  *   AppDialog, Banner, Carousel, Tooltip,
  *   reveal.RevealableLazyColumn, list.ListItem, reveal.EditMenuButton, reveal.DeleteMenuButton,
