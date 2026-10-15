@@ -436,16 +436,16 @@ Open (Half/Full) and close the panel via `PanelManager`, observing live `PanelSt
 <td valign="top">
 
 Navigable catalog of promoted public SDK components: six form fields plus Buttons, TopAppBar,
-Inputs, Selection, Feedback, and Lists groups, each shown in several states. The **Hostility
+Inputs, Chips field, Selection, Feedback, and Lists groups, each shown in several states. The **Hostility
 Selector** demo renders bare MIL-STD-2525 affiliation frames via the promoted `HostilityItem` for
 each affiliation (Unknown, Friend, Hostile, Neutral, Suspect) — not a specific unit symbol, and not
 plain colored swatches.
 
-**SDK APIs:** `InlineMessage`, `HeaderField`, `ExpandableField`, `FormFieldBox`, `NestedForm`, `HostilitySelector`, `HostilityItem`, buttons, inputs, selection, feedback, revealable lists, `AppNavHost`, `WindowScaffold`.
+**SDK APIs:** `InlineMessage`, `HeaderField`, `ExpandableField`, `FormFieldBox`, `NestedForm`, `HostilitySelector`, `HostilityItem`, buttons, inputs, `ChipsField`, `ChipAutocompleteList`, `AutoCompleteTextFieldBox`, `ChipValue`, `Chip`, `AllChipsDialog`, selection, feedback, revealable lists, `AppNavHost`, `WindowScaffold`.
 
 **Source:** [`gallery/.../uicatalog/`](../../gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/uicatalog) · **Descriptor:** `vision.combat.c4.ds.sample.gallery.uicatalog.UiCatalogToolDescriptor`
 
-**Verify:** Launch → component list opens → tap a component → detail screen shows each documented state → back navigation returns to list. In the Hostility Selector demo, each affiliation swatch shows its MIL-STD-2525 symbol.
+**Verify:** Launch → component list opens → tap a component → detail screen shows each documented state → back navigation returns to list. In the Hostility Selector demo, each affiliation swatch shows its MIL-STD-2525 symbol. In the Chips field demo: focus the first field, type to filter, tap an option to add a chip, tap a chip to remove it; type an unknown tag and tap the first row to create it; tap the lock chip for a dialog; the "+4" chip opens the all-chips dialog.
 
 </td>
 </tr>
@@ -469,6 +469,33 @@ Sub-screens:
 <td align="center"><img src="https://github.com/user-attachments/assets/70664d5c-7791-4795-8298-cee6d2baac7a" width="160" alt="Revealable Lists demo — swipe-to-delete revealed"><br><sub>Lists</sub></td>
 </tr>
 </table>
+
+**Chips field** (from SDK 0.6.3) — `ChipsField` keeps no state: each showcase owns the typed query
+and the selected chips in `remember`, filters the options itself, and decides in `onChipClicked`
+whether a tap removes the chip. The option list opens while the field is focused, which a shared
+`MutableInteractionSource` reports. Source:
+[`uicatalog/ui/detail/chips/`](../../gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/uicatalog/ui/detail/chips).
+No screenshot yet.
+
+- **Basic selection** — `ChipsField` + `ChipAutocompleteList` inside `AutoCompleteTextFieldBox`;
+  options filtered by the query, pick to add, tap a chip or press Backspace twice to remove.
+- **Create a new item** — `allowNewOptionCreation` + `onNewOptionSelected` turn the typed text into
+  a new tag, from the list row or the keyboard action.
+- **Chip states** — a custom `ChipValue` using every optional member: `ChipValue.Type` status dots,
+  `icon` / `leadingIcon`, a non-removable and a disabled chip that explain themselves in an
+  `AppDialog` on tap, an option with `enabledInOptions = false`, `getDescription` / `getInfo` /
+  `dateTime` in the option rows, and `getFallbackName` for a value without a name.
+- **Field states** — `readOnly`, `enabled`, `isError`, `isLoading` and `rightContent` switched on a
+  live field, with a custom `emptyAutocompleteMessage`.
+- **More than 10 chips** — a field with 14 chips shows the "+N" chip; `AllChipsDialog` is also
+  opened directly.
+- **Standalone Chip** — `Chip` outside a field: enabled, disabled, highlighted, each status dot,
+  leading and trailing icons, a click handler.
+
+> [!NOTE]
+> Give every `ChipValue` a unique `id`. `AllChipsDialog` keys its rows by it, so values that share an
+> id — every `SimpleChipValue` has an empty one — are only safe in a field that never holds more than
+> 10 chips.
 
 </details>
 
@@ -969,11 +996,11 @@ See [Plugin isolation — case (d)](plugin-isolation.md#case-d-pinned-state-surv
 |---|---|
 | Language | Kotlin `2.4.20` |
 | UI | Jetpack Compose (K2 Compose compiler bundled with Kotlin `2.4.20`) |
-| Build | Android Gradle Plugin `9.3.1`, Gradle `9.5.1` |
-| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.6.1` |
+| Build | Android Gradle Plugin `9.4.1`, Gradle `9.7.1` |
+| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.6.3` |
 | DI | Kodein (`subDI`, `diViewModel()`) |
-| Persistence | Room `2.8.4`, `SharedPreferences`, plugin-scoped file storage |
-| Annotation processing | KSP `2.3.9` |
+| Persistence | Room `2.8.5`, `SharedPreferences`, plugin-scoped file storage |
+| Annotation processing | KSP `2.3.12` |
 | Native | NDK + CMake (`:isolation` only) |
 | Desugaring | `desugar_jdk_libs` `2.1.5` |
 | JVM target | 17 |

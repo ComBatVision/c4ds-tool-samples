@@ -51,6 +51,10 @@ internal enum class UiCatalogShowcase(
         nameResId = R.string.ui_catalog_inputs_name,
         descResId = R.string.ui_catalog_inputs_desc,
     ),
+    CHIPS_FIELD(
+        nameResId = R.string.ui_catalog_chips_field_name,
+        descResId = R.string.ui_catalog_chips_field_desc,
+    ),
     SELECTION(
         nameResId = R.string.ui_catalog_selection_name,
         descResId = R.string.ui_catalog_selection_desc,

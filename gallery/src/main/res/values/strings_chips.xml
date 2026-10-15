@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- UI Components Catalog — Chips field showcase -->
+    <string name="ui_catalog_chips_field_name">Chips field</string>
+    <string name="ui_catalog_chips_field_desc">ChipsField, ChipAutocompleteList, AutoCompleteTextFieldBox, ChipValue, Chip and AllChipsDialog. The field is stateless: the caller owns the query and the selection.</string>
+
+    <string name="chips_basic_name">Basic selection</string>
+    <string name="chips_basic_desc">ChipsField with ChipAutocompleteList inside AutoCompleteTextFieldBox. Focus the field and type to filter the options, tap an option to add it, tap a chip to remove it. Backspace on an empty input outlines the last chip; a second Backspace removes it.</string>
+    <string name="chips_create_name">Create a new item</string>
+    <string name="chips_create_desc">Type a tag that is not in the list: the first row offers to create it. Tap the row or use the keyboard action. A created tag is offered again after you remove it.</string>
+    <string name="chips_states_name">Chip states</string>
+    <string name="chips_states_desc">Status dots, a leading icon, a chip that cannot be removed (lock icon) and a disabled chip — tap either for an explanation. The options show a description, a time and a role; one option is listed but cannot be picked, and one has no name.</string>
+    <string name="chips_field_states_name">Field states</string>
+    <string name="chips_field_states_desc">Switch the read-only, enabled, error and loading states of a live field and its end content. The list shows a custom message when nothing matches.</string>
+    <string name="chips_overflow_name">More than 10 chips</string>
+    <string name="chips_overflow_desc">Only the first 10 chips are drawn; the rest hide behind a \"+N\" chip that opens AllChipsDialog. The button opens the same dialog directly.</string>
+    <string name="chips_standalone_name">Standalone Chip</string>
+    <string name="chips_standalone_desc">The Chip composable outside a field: enabled, disabled and highlighted, with a status dot, and with leading and trailing icons.</string>
+
+    <!-- Demo data. Call signs are the same in every locale. -->
+    <string-array name="chips_call_signs" translatable="false">
+        <item>Alpha</item>
+        <item>Bravo</item>
+        <item>Charlie</item>
+        <item>Delta</item>
+        <item>Echo</item>
+        <item>Foxtrot</item>
+        <item>Golf</item>
+        <item>Hotel</item>
+        <item>India</item>
+        <item>Juliett</item>
+        <item>Kilo</item>
+        <item>Lima</item>
+        <item>Mike</item>
+        <item>November</item>
+    </string-array>
+    <string-array name="chips_station_times" translatable="false">
+        <item>10:31</item>
+        <item>10:27</item>
+        <item>09:58</item>
+    </string-array>
+    <string-array name="chips_tags">
+        <item>Urgent</item>
+        <item>Recon</item>
+        <item>Logistics</item>
+        <item>Medical</item>
+        <item>Engineering</item>
+    </string-array>
+
+    <!-- Fields -->
+    <string name="chips_recipients_label">Recipients</string>
+    <string name="chips_recipients_placeholder">Type a call sign</string>
+    <string name="chips_tags_label">Tags</string>
+    <string name="chips_tags_placeholder">Type a tag</string>
+    <string name="chips_stations_label">Stations</string>
+    <string name="chips_selection_summary">Selected (%1$d): %2$s</string>
+    <string name="chips_selection_empty">Nothing selected</string>
+
+    <!-- Chip states -->
+    <string name="chips_station_unnamed">Unnamed station</string>
+    <string name="chips_station_online">Online</string>
+    <string name="chips_station_offline">Offline</string>
+    <string name="chips_station_weak_signal">Weak signal</string>
+    <string name="chips_station_unreachable">Unreachable</string>
+    <string name="chips_station_busy">Busy — cannot be picked</string>
+    <string name="chips_station_role_observer">Observer</string>
+    <string name="chips_station_role_medic">Medic</string>
+    <string name="chips_station_locked_body">This station is assigned by the command post, so it cannot be removed here. Its chip is not removable and shows a lock in place of the close icon.</string>
+    <string name="chips_station_disabled_body">This station is disabled. A disabled chip has no close icon and cannot be removed.</string>
+    <string name="chips_dialog_ok">OK</string>
+
+    <!-- Field states and overflow -->
+    <string name="chips_flag_read_only">Read-only</string>
+    <string name="chips_flag_enabled">Enabled</string>
+    <string name="chips_flag_error">Error</string>
+    <string name="chips_flag_loading">Loading</string>
+    <string name="chips_flag_right_content">End content (reset button)</string>
+    <string name="chips_empty_all_selected">Every call sign is already selected</string>
+    <string name="chips_empty_no_match">No call sign matches \"%1$s\"</string>
+    <string name="chips_action_show_all">Open AllChipsDialog</string>
+    <string name="chips_action_reset">Reset</string>
+
+    <!-- Standalone Chip -->
+    <string name="chips_section_chip_basic">Enabled, disabled, highlighted</string>
+    <string name="chips_section_chip_types">Status dot (ChipValue.Type)</string>
+    <string name="chips_section_chip_icons">Icons</string>
+    <string name="chips_section_chip_click">Click handler</string>
+    <string name="chips_chip_default">Chip</string>
+    <string name="chips_chip_disabled">Disabled</string>
+    <string name="chips_chip_highlighted">Highlighted</string>
+    <string name="chips_chip_type_active">Active</string>
+    <string name="chips_chip_type_warning">Warning</string>
+    <string name="chips_chip_type_error">Error</string>
+    <string name="chips_chip_type_disabled">Disabled</string>
+    <string name="chips_chip_type_none">None</string>
+    <string name="chips_chip_icon_trailing">Trailing icon</string>
+    <string name="chips_chip_icon_leading">Leading icon</string>
+    <string name="chips_chip_icon_both">Both icons</string>
+    <string name="chips_chip_clicks">Tapped %1$d times</string>
+</resources>

@@ -327,8 +327,8 @@
 
     <!-- UI Catalog -->
     <string name="ui_catalog_tool_name">UI Components Catalog</string>
-    <string name="ui_catalog_desc">Navigable catalog of promoted public SDK components: six form fields plus Buttons, TopAppBar, Inputs, Selection, Feedback, and Lists groups, each shown in several states.</string>
-    <string name="ui_catalog_apis">InlineMessage, HeaderField, ExpandableField, FormFieldBox, NestedForm, HostilitySelector, Buttons, TopAppBar, Inputs, Selection, Feedback, Lists</string>
+    <string name="ui_catalog_desc">Navigable catalog of promoted public SDK components: six form fields plus Buttons, TopAppBar, Inputs, Chips field, Selection, Feedback, and Lists groups, each shown in several states.</string>
+    <string name="ui_catalog_apis">InlineMessage, HeaderField, ExpandableField, FormFieldBox, NestedForm, HostilitySelector, Buttons, TopAppBar, Inputs, ChipsField, Selection, Feedback, Lists</string>
     <!-- UI Catalog — entries -->
     <string name="ui_catalog_inline_message_name">InlineMessage</string>
     <string name="ui_catalog_inline_message_desc">Animated inline info / error caption that appears and disappears below a field.</string>
