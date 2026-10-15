@@ -1,0 +1,10 @@
+{
+  "name": "c4ds",
+  "description": "Build external tools (plugin APKs) for ComBat 4 Dismounted Soldier: project setup, tool scaffolding, environment checks and SDK updates.",
+  "author": {
+    "name": "ComBatVision"
+  },
+  "homepage": "https://github.com/ComBatVision/c4ds-tool-samples",
+  "repository": "https://github.com/ComBatVision/c4ds-tool-samples",
+  "license": "Apache-2.0"
+}

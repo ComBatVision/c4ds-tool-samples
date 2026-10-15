@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "c4ds-tool-samples": {
+      "source": {
+        "source": "github",
+        "repo": "ComBatVision/c4ds-tool-samples"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "c4ds@c4ds-tool-samples": true
+  }
+}
