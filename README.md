@@ -66,6 +66,28 @@ the Tools list. Full setup: **[Getting started](docs/guides/getting-started.md)*
 
 ---
 
+## Claude Code plugin
+
+This repo is also a [Claude Code](https://claude.com/claude-code) plugin marketplace. The `c4ds`
+plugin sets up the same build in your own repository, so you do not need to fork the samples:
+
+```bash
+claude plugin marketplace add ComBatVision/c4ds-tool-samples
+claude plugin install c4ds@c4ds-tool-samples
+```
+
+| Skill                 | What it does                                                                                          |
+|-----------------------|-------------------------------------------------------------------------------------------------------|
+| `/c4ds:setup-project` | Gradle wrapper, Nexus repository, version pins, `AGENTS.md` + `docs/` for agents, a first tool, build |
+| `/c4ds:new-tool`      | Adds a tool: a new plugin APK module, or another tool in an existing one                              |
+| `/c4ds:doctor`        | Checks JDK, Android SDK, device, host app, Nexus credentials and access                               |
+| `/c4ds:update-sdk`    | Moves the project to the SDK, AGP and Kotlin versions of this repo's `main`, refreshes the docs       |
+
+The plugin copies the build files and docs from this repo at a git ref, so a new project starts
+from a state that builds. Source: [`plugins/c4ds`](plugins/c4ds).
+
+---
+
 ## Screen layout
 
 The host divides the screen into tool components your tool declares:

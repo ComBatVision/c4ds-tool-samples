@@ -1,0 +1,5 @@
+    <string name="__TOOL_SNAKE___tool_name">__TOOL__</string>
+    <string name="__TOOL_SNAKE___count">Count: %1$d</string>
+    <string name="__TOOL_SNAKE___increment">Increment</string>
+    <string name="__TOOL_SNAKE___reset">Reset</string>
+    <string name="__TOOL_SNAKE___reset_toast">Counter reset</string>
