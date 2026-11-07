@@ -39,8 +39,8 @@ incompatible versions of the same class loaded through two classloaders.
 
 | Library                                       | Version  |
 |-----------------------------------------------|----------|
-| `org.jetbrains.kotlin:kotlin-stdlib`          | 2.4.20   |
-| `org.jetbrains.kotlin:kotlin-reflect`         | 2.4.20   |
+| `org.jetbrains.kotlin:kotlin-stdlib`          | 2.4.21   |
+| `org.jetbrains.kotlin:kotlin-reflect`         | 2.4.21   |
 | `org.jetbrains.kotlinx:kotlinx-coroutines-core` | 1.11.0 |
 | `org.jetbrains.kotlinx:kotlinx-serialization-json` | 1.11.0 |
 | `org.jetbrains.kotlinx:kotlinx-serialization-protobuf` | 1.11.0 |

@@ -112,8 +112,8 @@ changes, and the generated one cannot.
 
 ```toml
 [versions]
-combat-ds-sdk = "0.6.3"
-agp = "9.4.1"          # the version the host app is built with
+combat-ds-sdk = "0.6.4"
+agp = "9.5.1"          # the version the host app is built with
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
