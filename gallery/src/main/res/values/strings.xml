@@ -180,7 +180,7 @@
     <!-- Host Services -->
     <string name="host_services_tool_name">Host Services</string>
     <string name="host_services_desc">Three host-provided services that need zero bundling: sharing via LocalShareManager, clipboard via LocalClipboard, and in-app notifications via Notifier.</string>
-    <string name="host_services_apis">LocalShareManager, ShareManager.shareLink/shareCoordinates/shareFile/shareImage, LocalClipboard, Notifier.post { banner() }, plugin painterResource/stringResource inside InAppNotificationModel.content</string>
+    <string name="host_services_apis">LocalShareManager, ShareManager.shareLink/shareCoordinates/shareFile/shareImage, LocalClipboard, Notifier.post { transient() }, plugin painterResource/stringResource inside InAppNotificationModel.content</string>
     <string name="host_services_share_title">Share</string>
     <string name="host_services_share_link">Share link</string>
     <string name="host_services_share_coordinates">Share coordinates</string>

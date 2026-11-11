@@ -254,20 +254,20 @@ private val notifier: Notifier by instance()
 
 val id = AbstractNotificationManager.nextId()
 notifier.post(id) {
-    system { buildSystemNotification() } // the tray; with a banner, only when the app is in the background
-    banner(bannerModel)                  // over the map in the foreground; or pinned(cardModel) for a card
+    system { buildSystemNotification() } // the tray; with a transient one, only when the app is in the background
+    transient(model)                     // over the map in the foreground; or persistent(model), which stays
     wear(title = "Zone entered", text = "Alpha entered Zone 3", urgency = Urgency.HIGH) // a paired watch
 }
 notifier.cancel(NotificationKey(id))     // takes it off every place at once
 ```
 
-- A banner or a card needs a non-null `data.id`; posting again under the same id updates it.
+- A transient or persistent notification needs a non-null `data.id`; posting again under the same id updates it.
 - Declare a system notification's channel with `notifier.channel(NotificationChannelSpec(...))`; the
   host creates it and renames it when the language changes.
 - A `ToolNotificationManager` takes the notifier as its third constructor argument, and its `notify`
   posts to the tray and the watch.
-- `InAppNotificationManager`'s posting calls are deprecated: post banners and cards through
-  `Notifier` instead.
+- `InAppNotificationManager`'s posting calls are deprecated: post transient and persistent
+  notifications through `Notifier` instead.
 
 ---
 

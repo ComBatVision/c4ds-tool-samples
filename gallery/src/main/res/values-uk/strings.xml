@@ -180,7 +180,7 @@
     <!-- Host Services -->
     <string name="host_services_tool_name">Сервіси хоста</string>
     <string name="host_services_desc">Три сервіси, що надає хост і не потребують жодного бандлінгу: обмін даними через LocalShareManager, буфер обміну через LocalClipboard і внутрішні сповіщення через Notifier.</string>
-    <string name="host_services_apis">LocalShareManager, ShareManager.shareLink/shareCoordinates/shareFile/shareImage, LocalClipboard, Notifier.post { banner() }, plugin painterResource/stringResource inside InAppNotificationModel.content</string>
+    <string name="host_services_apis">LocalShareManager, ShareManager.shareLink/shareCoordinates/shareFile/shareImage, LocalClipboard, Notifier.post { transient() }, plugin painterResource/stringResource inside InAppNotificationModel.content</string>
     <string name="host_services_share_title">Обмін даними</string>
     <string name="host_services_share_link">Поділитися посиланням</string>
     <string name="host_services_share_coordinates">Поділитися координатами</string>

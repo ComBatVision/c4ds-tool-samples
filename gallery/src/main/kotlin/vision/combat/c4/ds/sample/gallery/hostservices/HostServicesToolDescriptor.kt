@@ -24,7 +24,7 @@ import vision.combat.c4.ds.sdk.tool.ToolParams
  *  - `LocalClipboard` is a Compose platform composition local, already on the host's classpath.
  *  - `Notifier` is resolved via Kodein DI (`rememberInstance`); this plugin never binds it itself.
  *    `AbstractTool` binds a tool-scoped notifier that forwards to the host's, and the host composes
- *    the banner's `InAppNotificationModel.content` inside this tool's environment —
+ *    the notification's `InAppNotificationModel.content` inside this tool's environment —
  *    tool `Context`, tool DI scope, tool `ViewModelStore`. That is why the notification content here
  *    calls `painterResource`/`stringResource` on plugin ids directly: they resolve against this
  *    APK's resource table (and re-resolve on locale / night-mode change), instead of against the

@@ -161,7 +161,7 @@ private fun ColumnScope.NotificationSection() {
     Button(
         label = stringResource(R.string.host_services_post_notification),
         onClick = {
-            val banner = InAppNotificationManager.InAppNotificationModel(
+            val inApp = InAppNotificationManager.InAppNotificationModel(
                 data = SampleNotificationData,
                 // Resources are read INSIDE content, not hoisted into this window's
                 // composition. The host composes this lambda itself, next to the map — but the
@@ -180,9 +180,9 @@ private fun ColumnScope.NotificationSection() {
                     )
                 },
             )
-            // A banner only: no system notification and no watch, so the host shows it over the map
+            // A transient notification only: no system notification and no watch, so the host shows it over the map
             // while the app is in the foreground. Posting again under the same id updates it.
-            notifier.post(SAMPLE_NOTIFICATION_ID) { banner(banner) }
+            notifier.post(SAMPLE_NOTIFICATION_ID) { transient(inApp) }
             posted = true
         },
     )
@@ -196,9 +196,9 @@ private fun ColumnScope.NotificationSection() {
 }
 
 /**
- * Minimal [InAppNotificationManager.InAppNotificationData] for this sample's banner — no
+ * Minimal [InAppNotificationManager.InAppNotificationData] for this sample's transient notification — no
  * text-to-speech announcement, and a fixed [id] since only one instance is ever posted at a time.
- * The host tracks the banner by this id, so it must not be null.
+ * The host tracks the notification by this id, so it must not be null.
  */
 private object SampleNotificationData : InAppNotificationManager.InAppNotificationData {
     override val id: Any = "host_services_sample_notification"
