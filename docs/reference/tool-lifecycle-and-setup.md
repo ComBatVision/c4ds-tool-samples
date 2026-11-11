@@ -255,7 +255,7 @@ private val notifier: Notifier by instance()
 val id = AbstractNotificationManager.nextId()
 notifier.post(id) {
     system { buildSystemNotification() } // the tray; with a transient one, only when the app is in the background
-    transient(model)                     // over the map in the foreground; or persistent(model), which stays
+    inApp { transient(model) }           // over the map in the foreground; or inApp { persistent(model) }, which stays
     wear(title = "Zone entered", text = "Alpha entered Zone 3", urgency = Urgency.HIGH) // a paired watch
 }
 notifier.cancel(NotificationKey(id))     // takes it off every place at once

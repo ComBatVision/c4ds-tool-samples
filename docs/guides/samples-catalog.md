@@ -763,7 +763,7 @@ services are simply on the classpath: **Share** (link, coordinates, file, image)
 `LocalShareManager`, provided by the host's `MainScreen` and re-exported from `c4ds-sdk-core:ui`
 through `c4ds-sdk`'s `api(...)` dependency; **Clipboard** via Compose's own `LocalClipboard`; and
 **In-app notification** via `Notifier`, resolved through Kodein DI (`rememberInstance`): the sample
-posts a transient notification with `notifier.post(id) { transient(model) }`. A
+posts a transient notification with `notifier.post(id) { inApp { transient(model) } }`. A
 notification can also name a system notification (`system { }`) and the watch (`wear(...)`); the
 host picks among them by the app's state.
 
@@ -780,7 +780,7 @@ Its **Share file** button shares a file via the OS share sheet (`ShareManager.sh
 the alternative pattern of minting a Uri and building your own intent (`ShareManager.getShareableUri`
 + a custom `ACTION_VIEW` chooser), see the **Open With** sample below.
 
-**SDK APIs:** `ShareManager`/`LocalShareManager` (`shareLink`, `shareCoordinates`, `shareFile`, `shareImage`), Compose `LocalClipboard`/`ClipEntry`, `Notifier` (`post(id) { transient() }`), `InAppNotificationModel`, `InAppNotificationData`, `IconWithText`, plugin `painterResource`/`stringResource` inside notification content, Kodein `rememberInstance`.
+**SDK APIs:** `ShareManager`/`LocalShareManager` (`shareLink`, `shareCoordinates`, `shareFile`, `shareImage`), Compose `LocalClipboard`/`ClipEntry`, `Notifier` (`post(id) { inApp { transient() } }`), `InAppNotificationModel`, `InAppNotificationData`, `IconWithText`, plugin `painterResource`/`stringResource` inside notification content, Kodein `rememberInstance`.
 
 **Source:** [`gallery/.../hostservices/`](../../gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/hostservices) · **Descriptor:** `vision.combat.c4.ds.sample.gallery.hostservices.HostServicesToolDescriptor`
 

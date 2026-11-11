@@ -161,7 +161,7 @@ private fun ColumnScope.NotificationSection() {
     Button(
         label = stringResource(R.string.host_services_post_notification),
         onClick = {
-            val inApp = InAppNotificationManager.InAppNotificationModel(
+            val inAppModel = InAppNotificationManager.InAppNotificationModel(
                 data = SampleNotificationData,
                 // Resources are read INSIDE content, not hoisted into this window's
                 // composition. The host composes this lambda itself, next to the map — but the
@@ -182,7 +182,7 @@ private fun ColumnScope.NotificationSection() {
             )
             // A transient notification only: no system notification and no watch, so the host shows it over the map
             // while the app is in the foreground. Posting again under the same id updates it.
-            notifier.post(SAMPLE_NOTIFICATION_ID) { transient(inApp) }
+            notifier.post(SAMPLE_NOTIFICATION_ID) { inApp { transient(inAppModel) } }
             posted = true
         },
     )
