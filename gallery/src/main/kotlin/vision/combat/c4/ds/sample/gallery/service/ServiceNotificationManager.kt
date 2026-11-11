@@ -24,9 +24,9 @@ import vision.combat.c4.ds.sdk.ui.platform.IntentProvider
  */
 internal class ServiceNotificationManager(
     context: ToolContext,
+    notifier: Notifier,
     intentProvider: IntentProvider,
     service: BadgeCounterService,
-    notifier: Notifier,
 ) : ToolNotificationManager(context, intentProvider, notifier) {
 
     override val counter: StateFlow<UInt> = service.unreadCount
