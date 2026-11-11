@@ -261,7 +261,8 @@ notifier.post(id) {
 notifier.cancel(NotificationKey(id))     // takes it off every place at once
 ```
 
-- A transient or persistent notification needs a non-null `data.id`; posting again under the same id updates it.
+- A notification needs no `data.id`: the host finds it by its key, and posting again under the same key updates it.
+  `id` is deprecated and defaults to `null`: leave it out.
 - Declare a system notification's channel with `notifier.channel(NotificationChannelSpec(...))`; the
   host creates it and renames it when the language changes.
 - A `ToolNotificationManager` takes the notifier as its third constructor argument, and its `notify`

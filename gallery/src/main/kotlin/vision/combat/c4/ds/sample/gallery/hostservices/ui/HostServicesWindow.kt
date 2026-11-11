@@ -196,12 +196,10 @@ private fun ColumnScope.NotificationSection() {
 }
 
 /**
- * Minimal [InAppNotificationManager.InAppNotificationData] for this sample's transient notification — no
- * text-to-speech announcement, and a fixed [id] since only one instance is ever posted at a time.
- * The host tracks the notification by this id, so it must not be null.
+ * Minimal [InAppNotificationManager.InAppNotificationData] for this sample's transient notification: no
+ * text-to-speech announcement and no id, since the host finds the notification by the key it is posted under.
  */
 private object SampleNotificationData : InAppNotificationManager.InAppNotificationData {
-    override val id: Any = "host_services_sample_notification"
     override val textToSpeech: String? = null
 }
 
