@@ -261,6 +261,8 @@ notifier.post(id) {
 notifier.cancel(NotificationKey(id))     // takes it off every place at once
 ```
 
+- The block ends with a target named on every path: put optional ones, such as `if (enabled) wear(...)`, before it.
+  A block that ends otherwise, or names no target, does not compile ("expected Target, actual Unit").
 - A notification needs no `data.id`: the host finds it by its key, and posting again under the same key updates it.
   `id` is deprecated and defaults to `null`: leave it out.
 - Declare a system notification's channel with `notifier.channel(NotificationChannelSpec(...))`; the
