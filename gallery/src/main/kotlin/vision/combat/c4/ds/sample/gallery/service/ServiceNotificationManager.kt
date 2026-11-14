@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import vision.combat.c4.ds.sdk.tool.ToolContext
 import vision.combat.c4.ds.sdk.tool.ToolNotificationManager
+import vision.combat.c4.ds.sdk.ui.notification.Notifier
 import vision.combat.c4.ds.sdk.ui.platform.IntentProvider
 
 /**
@@ -18,13 +19,14 @@ import vision.combat.c4.ds.sdk.ui.platform.IntentProvider
  * 0 and the tool is inactive, so "Mark all read" (which zeroes the count) makes the badge disappear.
  *
  * [service] is resolved from the service's own DI graph, into which AbstractToolService binds itself
- * via `bindErasedInstance`.
+ * via `bindErasedInstance`. [notifier] comes from the same graph, like [intentProvider].
  */
 internal class ServiceNotificationManager(
     context: ToolContext,
     intentProvider: IntentProvider,
+    notifier: Notifier,
     service: BadgeCounterService,
-) : ToolNotificationManager(context, intentProvider) {
+) : ToolNotificationManager(context, intentProvider, notifier) {
 
     override val counter: StateFlow<UInt> = service.unreadCount
         .map { count -> count.toUInt() }

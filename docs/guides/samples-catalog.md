@@ -997,7 +997,7 @@ See [Plugin isolation — case (d)](plugin-isolation.md#case-d-pinned-state-surv
 | Language | Kotlin `2.4.21` |
 | UI | Jetpack Compose (K2 Compose compiler bundled with Kotlin `2.4.21`) |
 | Build | Android Gradle Plugin `9.5.1`, Gradle `9.8.2` |
-| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.6.4` |
+| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.6.5` |
 | DI | Kodein (`subDI`, `diViewModel()`) |
 | Persistence | Room `2.8.5`, `SharedPreferences`, plugin-scoped file storage |
 | Annotation processing | KSP `2.3.12` |
