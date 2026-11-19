@@ -81,7 +81,7 @@ c4ds-tool-samples/
 │       ├── network/             # Data Management — network requests with the host-provided Ktor client
 │       ├── websocket/           # Data Management — live earthquake feed over a WebSocket (Ktor OkHttp engine)
 │       ├── service/             # Lifecycle & Services — AbstractToolService
-│       ├── hostservices/        # Host Services — ShareManager, LocalClipboard, InAppNotificationManager
+│       ├── hostservices/        # Host Services — ShareManager, LocalClipboard, Notifier
 │       ├── hostlibs/            # Host Libraries — Coil, Accompanist, mil-sym (obfuscation-safe)
 │       ├── openwith/            # Open With — ShareManager.getShareableUri + custom ACTION_VIEW chooser
 │       └── resources/
@@ -762,14 +762,16 @@ This tool's UI code runs in the HOST process (the normal case for plugin UI), so
 services are simply on the classpath: **Share** (link, coordinates, file, image) via
 `LocalShareManager`, provided by the host's `MainScreen` and re-exported from `c4ds-sdk-core:ui`
 through `c4ds-sdk`'s `api(...)` dependency; **Clipboard** via Compose's own `LocalClipboard`; and
-**In-app notification** via `InAppNotificationManager`, resolved through Kodein DI
-(`rememberInstance`).
+**In-app notification** via `Notifier`, resolved through Kodein DI (`rememberInstance`): the sample
+posts a transient notification with `notifier.post(id) { inApp { transient(model) } }`. A
+notification can also name a system notification (`system { }`) and the watch (`wear(...)`); the
+host picks among them by the app's state.
 
 The notification also shows *where* plugin resources may be read. `InAppNotificationModel.content`
 is authored by the tool but composed by the **host**, next to the map — so the sample renders it
 with `painterResource(R.drawable.ic_notification)` and `stringResource(...)` called **inside** the
 content lambda rather than hoisted into the tool window. That is safe because `AbstractTool` binds a
-tool-scoped `InAppNotificationManager` that wraps posted content in the tool's environment (tool
+tool-scoped `Notifier` that wraps posted content in the tool's environment (tool
 `Context`, DI scope, `ViewModelStore`): plugin ids resolve against this APK's resource table, and
 re-resolve when the host's app language or night mode changes. Read against the host's context, the
 same ids would be a wrong resource or a `Resources.NotFoundException`.
@@ -778,7 +780,7 @@ Its **Share file** button shares a file via the OS share sheet (`ShareManager.sh
 the alternative pattern of minting a Uri and building your own intent (`ShareManager.getShareableUri`
 + a custom `ACTION_VIEW` chooser), see the **Open With** sample below.
 
-**SDK APIs:** `ShareManager`/`LocalShareManager` (`shareLink`, `shareCoordinates`, `shareFile`, `shareImage`), Compose `LocalClipboard`/`ClipEntry`, `InAppNotificationManager` (`postTransientNotification`, `InAppNotificationModel`, `InAppNotificationData`), `IconWithText`, plugin `painterResource`/`stringResource` inside notification content, Kodein `rememberInstance`.
+**SDK APIs:** `ShareManager`/`LocalShareManager` (`shareLink`, `shareCoordinates`, `shareFile`, `shareImage`), Compose `LocalClipboard`/`ClipEntry`, `Notifier` (`post(id) { inApp { transient() } }`), `InAppNotificationModel`, `InAppNotificationData`, `IconWithText`, plugin `painterResource`/`stringResource` inside notification content, Kodein `rememberInstance`.
 
 **Source:** [`gallery/.../hostservices/`](../../gallery/src/main/kotlin/vision/combat/c4/ds/sample/gallery/hostservices) · **Descriptor:** `vision.combat.c4.ds.sample.gallery.hostservices.HostServicesToolDescriptor`
 
@@ -997,7 +999,7 @@ See [Plugin isolation — case (d)](plugin-isolation.md#case-d-pinned-state-surv
 | Language | Kotlin `2.4.21` |
 | UI | Jetpack Compose (K2 Compose compiler bundled with Kotlin `2.4.21`) |
 | Build | Android Gradle Plugin `9.5.1`, Gradle `9.8.2` |
-| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.6.4` |
+| SDK | `c4ds-sdk` / `c4ds-sdk-runtime` `0.6.5` |
 | DI | Kodein (`subDI`, `diViewModel()`) |
 | Persistence | Room `2.8.5`, `SharedPreferences`, plugin-scoped file storage |
 | Annotation processing | KSP `2.3.12` |

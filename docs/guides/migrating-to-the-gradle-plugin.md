@@ -112,7 +112,7 @@ changes, and the generated one cannot.
 
 ```toml
 [versions]
-combat-ds-sdk = "0.6.4"
+combat-ds-sdk = "0.6.5"
 agp = "9.5.1"          # the version the host app is built with
 
 [plugins]

@@ -29,6 +29,8 @@ import vision.combat.c4.ds.sdk.ui.component.IconWithText
 import vision.combat.c4.ds.sdk.ui.component.WindowScaffold
 import vision.combat.c4.ds.sdk.ui.component.bar.BackNavTopAppBar
 import vision.combat.c4.ds.sdk.ui.component.button.Button
+import vision.combat.c4.ds.sdk.ui.notification.Notifier
+import vision.combat.c4.ds.sdk.ui.notification.post
 import vision.combat.c4.ds.sdk.ui.platform.InAppNotificationManager
 import vision.combat.c4.ds.sdk.ui.platform.LocalShareManager
 import vision.combat.c4.unit.CoordinateSystemFormat
@@ -146,7 +148,7 @@ private fun ColumnScope.ClipboardSection() {
 
 @Composable
 private fun ColumnScope.NotificationSection() {
-    val notificationManager by rememberInstance<InAppNotificationManager>()
+    val notifier by rememberInstance<Notifier>()
     val postedLabel = stringResource(R.string.host_services_notification_posted)
     var posted by remember { mutableStateOf(false) }
 
@@ -159,27 +161,28 @@ private fun ColumnScope.NotificationSection() {
     Button(
         label = stringResource(R.string.host_services_post_notification),
         onClick = {
-            notificationManager.postTransientNotification(
-                InAppNotificationManager.InAppNotificationModel(
-                    data = SampleNotificationData,
-                    // Resources are read INSIDE content, not hoisted into this window's
-                    // composition. The host composes this lambda itself, next to the map — but the
-                    // manager above came from this tool's DI graph (AbstractTool binds a
-                    // tool-scoped one), so the host wraps the content in this tool's environment:
-                    // LocalContext is the tool's context, and R.drawable/R.string resolve against
-                    // this plugin's own resource table. Passing the same ids to the host's context
-                    // would be a wrong resource at best and a Resources.NotFoundException at worst.
-                    // Reading them here also keeps the notification config-reactive: it re-resolves
-                    // when the host's app language or night mode changes while it is on screen.
-                    content = {
-                        IconWithText(
-                            painter = painterResource(R.drawable.ic_notification),
-                            text = stringResource(R.string.host_services_notification_content),
-                            contentDescription = stringResource(R.string.host_services_notification_icon_desc),
-                        )
-                    },
-                ),
+            val inAppModel = InAppNotificationManager.InAppNotificationModel(
+                data = SampleNotificationData,
+                // Resources are read INSIDE content, not hoisted into this window's
+                // composition. The host composes this lambda itself, next to the map — but the
+                // notifier above came from this tool's DI graph (AbstractTool binds a
+                // tool-scoped one), so the host wraps the content in this tool's environment:
+                // LocalContext is the tool's context, and R.drawable/R.string resolve against
+                // this plugin's own resource table. Passing the same ids to the host's context
+                // would be a wrong resource at best and a Resources.NotFoundException at worst.
+                // Reading them here also keeps the notification config-reactive: it re-resolves
+                // when the host's app language or night mode changes while it is on screen.
+                content = {
+                    IconWithText(
+                        painter = painterResource(R.drawable.ic_notification),
+                        text = stringResource(R.string.host_services_notification_content),
+                        contentDescription = stringResource(R.string.host_services_notification_icon_desc),
+                    )
+                },
             )
+            // A transient notification only: no system notification and no watch, so the host shows it over the map
+            // while the app is in the foreground. Posting again under the same id updates it.
+            notifier.post(SAMPLE_NOTIFICATION_ID) { inApp { transient(inAppModel) } }
             posted = true
         },
     )
@@ -193,15 +196,14 @@ private fun ColumnScope.NotificationSection() {
 }
 
 /**
- * Minimal [InAppNotificationManager.InAppNotificationData] for this sample's transient
- * notification — no text-to-speech announcement, and a fixed [id] since only one instance is ever
- * posted at a time.
+ * Minimal [InAppNotificationManager.InAppNotificationData] for this sample's transient notification: no
+ * text-to-speech announcement and no id, since the host finds the notification by the key it is posted under.
  */
 private object SampleNotificationData : InAppNotificationManager.InAppNotificationData {
-    override val id: Any = "host_services_sample_notification"
     override val textToSpeech: String? = null
 }
 
+private const val SAMPLE_NOTIFICATION_ID = 1
 private const val SAMPLE_FILE_NAME = "host_services_sample.txt"
 private const val SAMPLE_BITMAP_SIZE = 64
 private const val SAMPLE_LATITUDE = 50.4501

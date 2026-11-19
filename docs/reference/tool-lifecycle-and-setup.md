@@ -243,6 +243,37 @@ window reads live state from the service (e.g. via a `StateFlow`) instead of dup
 
 ---
 
+## Notifications — `Notifier`
+
+`AbstractTool` and `AbstractToolService` bind a `Notifier` in their DI graph. It is the one way to
+tell the operator something: a notification names each place it may show, at most once each, and
+the host picks among them by the app's state.
+
+```kotlin
+private val notifier: Notifier by instance()
+
+val id = AbstractNotificationManager.nextId()
+notifier.post(id) {
+    system { buildSystemNotification() } // the tray; with a transient one, only when the app is in the background
+    inApp { transient(model) }           // over the map in the foreground; or inApp { persistent(model) }, which stays
+    wear(title = "Zone entered", text = "Alpha entered Zone 3", urgency = Urgency.HIGH) // a paired watch
+}
+notifier.cancel(NotificationKey(id))     // takes it off every place at once
+```
+
+- The block ends with a target named on every path: put optional ones, such as `if (enabled) wear(...)`, before it.
+  A block that ends otherwise, or names no target, does not compile ("expected Target, actual Unit").
+- A notification needs no `data.id`: the host finds it by its key, and posting again under the same key updates it.
+  `id` is deprecated and defaults to `null`: leave it out.
+- Declare a system notification's channel with `notifier.channel(NotificationChannelSpec(...))`; the
+  host creates it and renames it when the language changes.
+- A `ToolNotificationManager` takes the notifier as its third constructor argument, and its `notify`
+  posts to the tray and the watch.
+- `InAppNotificationManager`'s posting calls are deprecated: post transient and persistent
+  notifications through `Notifier` instead.
+
+---
+
 ## Kodein DI lifecycle
 
 - `AbstractTool` and `AbstractToolService` each expose a `di: DI` property seeded from a
